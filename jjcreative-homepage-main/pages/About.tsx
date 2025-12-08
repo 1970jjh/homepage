@@ -30,6 +30,40 @@ export const About: React.FC = () => {
               사람과 조직의 성장을 돕는 진정한 파트너, JJ Creative 교육연구소입니다.
             </p>
           </motion.div>
+
+          {/* YouTube Videos - Horizontal Layout */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="aspect-video bg-tech-panel rounded-lg overflow-hidden border border-white/10 hover:border-tech-cyan/50 transition-colors"
+            >
+              <iframe
+                src="https://www.youtube.com/embed/g7vOJc3t5_s"
+                title="JJ Creative 교육 영상 1"
+                className="w-full h-full"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="aspect-video bg-tech-panel rounded-lg overflow-hidden border border-white/10 hover:border-tech-cyan/50 transition-colors"
+            >
+              <iframe
+                src="https://www.youtube.com/embed/4XTPnf4B1SU"
+                title="JJ Creative 교육 영상 2"
+                className="w-full h-full"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </motion.div>
+          </div>
         </div>
       </section>
 
