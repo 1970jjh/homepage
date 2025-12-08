@@ -106,7 +106,7 @@ export const Contact: React.FC = () => {
 
       {/* Process Steps */}
       <section className="py-16 border-b border-tech-dim bg-tech-panel relative">
-        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" style={{ backgroundSize: '40px 40px' }}></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none" style={{ backgroundSize: '40px 40px' }}></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
            <div className="flex flex-col md:flex-row justify-between items-center gap-8 relative">
              {/* Connector Line (Desktop) */}
@@ -134,7 +134,7 @@ export const Contact: React.FC = () => {
 
       {/* Main Content: Info & Form */}
       <section className="py-20 relative">
-        <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" style={{ backgroundSize: '40px 40px' }}></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.02] pointer-events-none" style={{ backgroundSize: '40px 40px' }}></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
