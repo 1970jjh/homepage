@@ -206,7 +206,8 @@ export const Contact: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-tech-panel p-8 rounded-2xl border border-tech-dim tech-border"
+              className="bg-tech-panel p-8 rounded-2xl border border-tech-cyan/30"
+              style={{ position: 'relative', zIndex: 50 }}
             >
               <h3 className="text-2xl font-bold text-white mb-6">문의하기</h3>
 
@@ -223,7 +224,7 @@ export const Contact: React.FC = () => {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4" style={{ position: 'relative', zIndex: 100 }}>
                   <div>
                     <label className="block text-sm font-medium text-gray-400 mb-1 font-mono">회사명</label>
                     <input
@@ -234,6 +235,7 @@ export const Contact: React.FC = () => {
                       required
                       className="w-full px-4 py-3 bg-tech-bg border border-tech-dim rounded-lg focus:ring-2 focus:ring-tech-cyan focus:border-transparent outline-none transition-all text-white placeholder-gray-500"
                       placeholder="회사명을 입력해주세요"
+                      style={{ cursor: 'text', pointerEvents: 'auto', position: 'relative', zIndex: 10 }}
                     />
                   </div>
                   <div>
@@ -246,6 +248,7 @@ export const Contact: React.FC = () => {
                       required
                       className="w-full px-4 py-3 bg-tech-bg border border-tech-dim rounded-lg focus:ring-2 focus:ring-tech-cyan focus:border-transparent outline-none transition-all text-white placeholder-gray-500"
                       placeholder="담당자 성함을 입력해주세요"
+                      style={{ cursor: 'text', pointerEvents: 'auto', position: 'relative', zIndex: 10 }}
                     />
                   </div>
                   <div>
@@ -258,6 +261,7 @@ export const Contact: React.FC = () => {
                       required
                       className="w-full px-4 py-3 bg-tech-bg border border-tech-dim rounded-lg focus:ring-2 focus:ring-tech-cyan focus:border-transparent outline-none transition-all text-white placeholder-gray-500"
                       placeholder="이메일 주소를 입력해주세요"
+                      style={{ cursor: 'text', pointerEvents: 'auto', position: 'relative', zIndex: 10 }}
                     />
                   </div>
                   <div>
@@ -270,6 +274,7 @@ export const Contact: React.FC = () => {
                       required
                       className="w-full px-4 py-3 bg-tech-bg border border-tech-dim rounded-lg focus:ring-2 focus:ring-tech-cyan focus:border-transparent outline-none transition-all text-white placeholder-gray-500"
                       placeholder="연락처를 입력해주세요"
+                      style={{ cursor: 'text', pointerEvents: 'auto', position: 'relative', zIndex: 10 }}
                     />
                   </div>
                   <div>
@@ -282,6 +287,7 @@ export const Contact: React.FC = () => {
                       required
                       className="w-full px-4 py-3 bg-tech-bg border border-tech-dim rounded-lg focus:ring-2 focus:ring-tech-cyan focus:border-transparent outline-none transition-all resize-none text-white placeholder-gray-500"
                       placeholder="문의 내용을 입력해주세요"
+                      style={{ cursor: 'text', pointerEvents: 'auto', position: 'relative', zIndex: 10 }}
                     ></textarea>
                   </div>
 

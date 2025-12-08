@@ -7,7 +7,7 @@ export const About: React.FC = () => {
   return (
     <div className="w-full bg-tech-bg">
       {/* Header */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center">
+      <section className="relative min-h-[700px] md:min-h-[800px] flex items-center justify-center py-20">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1920&q=80"
@@ -32,7 +32,7 @@ export const About: React.FC = () => {
           </motion.div>
 
           {/* YouTube Videos - Horizontal Layout */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-7xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
