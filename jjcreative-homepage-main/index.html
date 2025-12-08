@@ -140,6 +140,18 @@
         100% { transform: translateX(-50%); }
       }
 
+      /* Marquee RTL (Right to Left) Animation */
+      .animate-marquee-rtl {
+        animation: marquee-rtl 40s linear infinite;
+      }
+      .animate-marquee-rtl:hover {
+        animation-play-state: paused;
+      }
+      @keyframes marquee-rtl {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-33.33%); }
+      }
+
       /* Technical Borders/Corners */
       .tech-border {
         position: relative;
