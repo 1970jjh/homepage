@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { GraduationCap, Briefcase, Star, User, ImageOff } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Expert } from '../types';
 
 // ============================================================================
@@ -116,9 +117,9 @@ const SmartImage: React.FC<{ filename: string; alt: string; className?: string }
 
   if (error) {
     return (
-      <div className={`flex flex-col items-center justify-center bg-gray-100 text-gray-400 ${className}`}>
+      <div className={`flex flex-col items-center justify-center bg-tech-panel text-gray-500 ${className}`}>
         <ImageOff size={32} className="mb-2 opacity-50" />
-        <span className="text-xs text-center px-2">이미지 없음<br/><span className="font-mono text-[10px] truncate max-w-[100px] inline-block text-gray-300">로드 실패</span></span>
+        <span className="text-xs text-center px-2">이미지 없음<br/><span className="font-mono text-[10px] truncate max-w-[100px] inline-block text-gray-600">로드 실패</span></span>
       </div>
     );
   }
@@ -135,69 +136,83 @@ const SmartImage: React.FC<{ filename: string; alt: string; className?: string }
 
 export const People: React.FC = () => {
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-tech-bg">
       {/* Header */}
-      <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center bg-jjnavy">
+      <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center bg-tech-bg">
         <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1920&q=80" 
-            alt="Professionals" 
-            className="w-full h-full object-cover opacity-20 mix-blend-overlay"
+          <img
+            src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1920&q=80"
+            alt="Professionals"
+            className="w-full h-full object-cover opacity-20"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-tech-bg/90 via-tech-bg/80 to-tech-bg"></div>
+          <div className="absolute inset-0 bg-grid-pattern opacity-[0.05]" style={{ backgroundSize: '40px 40px' }}></div>
         </div>
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-4xl font-bold mb-4">변화를 이끄는 전문가들</h1>
-          <p className="text-xl text-gray-300">
-            JJ Creative 교육연구소의 대표 강사진을 소개합니다.<br/>
-            이론과 실무를 겸비한 최고의 전문가들이 함께합니다.
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="font-mono text-tech-cyan text-sm tracking-widest mb-4 block">[ OUR_TEAM ]</span>
+            <h1 className="text-4xl font-bold mb-4">변화를 이끄는 전문가들</h1>
+            <p className="text-xl text-gray-300">
+              JJ Creative 교육연구소의 대표 강사진을 소개합니다.<br/>
+              이론과 실무를 겸비한 최고의 전문가들이 함께합니다.
+            </p>
+          </motion.div>
         </div>
       </section>
 
       {/* Experts Grid */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-tech-panel relative">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" style={{ backgroundSize: '40px 40px' }}></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-wrap justify-center gap-8">
             {experts.map((expert, idx) => (
-              <div 
-                key={idx} 
-                className="w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)] max-w-sm bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 flex flex-col hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group"
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)] max-w-sm bg-tech-bg rounded-xl overflow-hidden border border-tech-dim flex flex-col hover:border-tech-cyan transition-all duration-300 hover:-translate-y-2 group tech-border"
               >
                 {/* Image Area */}
-                <div className="aspect-[3/4] overflow-hidden bg-gray-200 relative">
+                <div className="aspect-[3/4] overflow-hidden bg-tech-panel relative">
                   <SmartImage
                     filename={expert.image}
                     alt={expert.name}
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   />
-                  
+
                   {/* Overlay Info */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-jjnavy/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-t from-tech-bg/95 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 pointer-events-none">
                     <div>
                       <p className="text-white font-bold text-lg">{expert.name}</p>
-                      <p className="text-jjorange text-sm">{expert.role}</p>
+                      <p className="text-jjorange text-sm font-mono">{expert.role}</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Content Area */}
                 <div className="p-8 flex-grow flex flex-col">
-                  <h3 className="text-2xl font-bold text-jjnavy mb-1">{expert.name}</h3>
-                  <p className="text-jjorange font-bold text-sm mb-4">{expert.role}</p>
-                  
+                  <h3 className="text-2xl font-bold text-white mb-1">{expert.name}</h3>
+                  <p className="text-jjorange font-bold text-sm mb-4 font-mono">{expert.role}</p>
+
                   {/* Education */}
                   <div className="mb-4 flex items-start gap-2">
-                    <GraduationCap size={18} className="text-gray-400 mt-0.5 flex-shrink-0" />
-                    <p className="text-gray-600 text-sm leading-tight">{expert.education}</p>
+                    <GraduationCap size={18} className="text-tech-cyan mt-0.5 flex-shrink-0" />
+                    <p className="text-gray-400 text-sm leading-tight">{expert.education}</p>
                   </div>
 
                   {/* Career */}
                   <div className="mb-6">
                     <div className="flex items-center gap-2 mb-2">
-                      <Briefcase size={18} className="text-gray-400" />
-                      <span className="font-bold text-gray-700 text-sm">주요 경력</span>
+                      <Briefcase size={18} className="text-tech-cyan" />
+                      <span className="font-bold text-gray-300 text-sm">주요 경력</span>
                     </div>
-                    <ul className="text-gray-600 text-sm space-y-1 pl-6 list-disc marker:text-gray-300">
+                    <ul className="text-gray-400 text-sm space-y-1 pl-6 list-disc marker:text-tech-dim">
                       {expert.career.slice(0, 3).map((c, i) => (
                         <li key={i} className="line-clamp-1">{c}</li>
                       ))}
@@ -205,44 +220,53 @@ export const People: React.FC = () => {
                   </div>
 
                   {/* Fields */}
-                  <div className="mt-auto pt-6 border-t border-gray-100">
+                  <div className="mt-auto pt-6 border-t border-tech-dim">
                     <div className="flex items-center gap-2 mb-3">
                       <Star size={18} className="text-jjorange" />
-                      <span className="font-bold text-jjnavy text-sm">전문 분야</span>
+                      <span className="font-bold text-white text-sm">전문 분야</span>
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {expert.fields.slice(0, 4).map((field, i) => (
-                        <span key={i} className="bg-blue-50 text-jjnavy text-xs px-2.5 py-1 rounded-md font-medium border border-blue-100">
+                        <span key={i} className="bg-tech-cyan/10 text-tech-cyan text-xs px-2.5 py-1 rounded-md font-medium border border-tech-cyan/30">
                           {field.split('(')[0].trim()}
                         </span>
                       ))}
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
-      
+
       {/* Bottom CTA */}
-      <section className="py-20 text-center bg-jjnavy text-white relative overflow-hidden">
+      <section className="py-20 text-center bg-tech-bg text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" style={{ backgroundSize: '40px 40px' }}></div>
         <div className="absolute top-0 right-0 w-64 h-64 bg-jjorange opacity-10 rounded-full blur-3xl -mr-32 -mt-32"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500 opacity-10 rounded-full blur-3xl -ml-32 -mb-32"></div>
-        
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-tech-cyan opacity-10 rounded-full blur-3xl -ml-32 -mb-32"></div>
+
         <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <h2 className="text-3xl font-bold mb-6">강사진의 상세 프로필이 필요하신가요?</h2>
-          <p className="text-gray-300 mb-10 text-lg">
-            각 강사님의 강의 영상 샘플과 상세 커리큘럼, 레퍼런스를 확인하실 수 있습니다.
-          </p>
-          <a 
-            href="https://form.naver.com/response/S1p9qf7_I9qBZ96COOdSzA"
-            target="_blank"
-            rel="noreferrer"
-            className="bg-white text-jjnavy px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl inline-flex items-center gap-2 text-lg group"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            <User size={22} className="group-hover:text-jjorange transition-colors" /> 강사 프로필 및 제안서 요청
-          </a>
+            <span className="font-mono text-tech-cyan text-sm tracking-widest mb-4 block">// CONTACT_US</span>
+            <h2 className="text-3xl font-bold mb-6">강사진의 상세 프로필이 필요하신가요?</h2>
+            <p className="text-gray-400 mb-10 text-lg">
+              각 강사님의 강의 영상 샘플과 상세 커리큘럼, 레퍼런스를 확인하실 수 있습니다.
+            </p>
+            <a
+              href="https://form.naver.com/response/S1p9qf7_I9qBZ96COOdSzA"
+              target="_blank"
+              rel="noreferrer"
+              className="bg-tech-cyan hover:bg-tech-accent text-tech-bg px-10 py-4 rounded-full font-bold transition-all inline-flex items-center gap-2 text-lg group hover:-translate-y-1"
+            >
+              <User size={22} className="group-hover:text-jjorange transition-colors" /> 강사 프로필 및 제안서 요청
+            </a>
+          </motion.div>
         </div>
       </section>
     </div>

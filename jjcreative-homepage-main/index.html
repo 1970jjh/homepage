@@ -1,35 +1,211 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>JJ Creative 교육연구소</title>
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Noto Sans KR + JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Configuration -->
     <script>
       tailwind.config = {
         theme: {
           extend: {
-            colors: {
-              jjnavy: '#1A3B5C',
-              jjorange: '#F47C20',
-              jjgray: '#F3F4F6',
-            },
             fontFamily: {
-              sans: ['Pretendard', 'sans-serif'],
+              sans: ['"Noto Sans KR"', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
             },
+            colors: {
+              'tech-bg': '#020617',
+              'tech-panel': '#0f172a',
+              'tech-cyan': '#06b6d4',
+              'tech-accent': '#22d3ee',
+              'tech-dim': '#334155',
+              'jjnavy': '#1A3B5C',
+              'jjorange': '#F47C20',
+              'jjgray': '#F3F4F6',
+            },
+            backgroundImage: {
+              'grid-pattern': "linear-gradient(to right, #1e293b 1px, transparent 1px), linear-gradient(to bottom, #1e293b 1px, transparent 1px)",
+            },
+            animation: {
+              'spin-slow': 'spin 12s linear infinite',
+              'pulse-fast': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'marquee': 'marquee 60s linear infinite',
+            },
+            keyframes: {
+              marquee: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-50%)' },
+              }
+            }
           },
         },
       }
     </script>
+
     <style>
-      /* Fallback for Pretendard if Google Fonts fails, using system fonts */
+      /* Base Styles */
       body {
-        font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+        font-family: 'Noto Sans KR', sans-serif;
+        background-color: #020617;
+        color: #e2e8f0;
+        overflow-x: hidden;
+      }
+
+      /* Custom Cursor Styles */
+      @media (pointer: fine) {
+        body {
+          cursor: none;
+        }
+
+        .cursor-dot,
+        .cursor-outline {
+          position: fixed;
+          top: 0;
+          left: 0;
+          transform: translate(-50%, -50%);
+          border-radius: 50%;
+          z-index: 9999;
+          pointer-events: none;
+        }
+
+        .cursor-dot {
+          width: 8px;
+          height: 8px;
+          background-color: #22d3ee;
+        }
+
+        .cursor-outline {
+          width: 40px;
+          height: 40px;
+          border: 1px solid rgba(34, 211, 238, 0.5);
+          transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+
+        body.hovering .cursor-outline {
+          width: 60px;
+          height: 60px;
+          background-color: rgba(34, 211, 238, 0.1);
+          border-color: #22d3ee;
+        }
+      }
+
+      @media (pointer: coarse) {
+        .cursor-dot,
+        .cursor-outline {
+          display: none !important;
+        }
+      }
+
+      /* Grid Background Overlay */
+      .bg-tech-grid {
+        background-size: 40px 40px;
+        mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
+        -webkit-mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
+      }
+
+      /* Scrollytelling Animations */
+      .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Kinetic Typography Marquee */
+      .marquee-container {
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .marquee-content {
+        display: inline-block;
+        animation: marquee 20s linear infinite;
+      }
+      .marquee-content:hover {
+        animation-play-state: paused;
+      }
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      /* Technical Borders/Corners */
+      .tech-border {
+        position: relative;
+      }
+      .tech-border::before, .tech-border::after {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border: 2px solid #22d3ee;
+        transition: all 0.3s ease;
+      }
+      .tech-border::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+      .tech-border::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+      .tech-border:hover::before { width: 100%; height: 100%; opacity: 0.1; background: #22d3ee; border: none; }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #020617;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1e293b;
+        border: 1px solid #22d3ee;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #334155;
+      }
+
+      /* Smooth scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Animation for fade-in */
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+
+      @keyframes scaleIn {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 0.3s ease-out;
+      }
+
+      .animate-slide-up {
+        animation: slideUp 0.3s ease-out;
+      }
+
+      .animate-scale-in {
+        animation: scaleIn 0.3s ease-out;
       }
     </style>
+
   <script type="importmap">
 {
   "imports": {
@@ -44,8 +220,70 @@
 }
 </script>
 </head>
-  <body>
+  <body class="antialiased">
+    <!-- Custom Cursor Elements -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Background Grid -->
+    <div id="bg-grid" class="fixed inset-0 z-[-1] bg-tech-bg">
+      <div class="absolute inset-0 bg-grid-pattern opacity-[0.07]" style="background-size: 40px 40px;"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-tech-bg/50 to-tech-bg pointer-events-none"></div>
+    </div>
+
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
+
+    <!-- Custom Cursor Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+
+        if (window.matchMedia('(pointer: fine)').matches && cursorDot && cursorOutline) {
+          window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+
+            cursorOutline.animate({
+              left: `${posX}px`,
+              top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+          });
+
+          document.addEventListener('mouseover', (e) => {
+            if (e.target.closest('a, button, input, textarea, [role="button"], .cursor-hover')) {
+              document.body.classList.add('hovering');
+            }
+          });
+
+          document.addEventListener('mouseout', (e) => {
+            if (e.target.closest('a, button, input, textarea, [role="button"], .cursor-hover')) {
+              document.body.classList.remove('hovering');
+            }
+          });
+        }
+
+        // Scroll reveal animation
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+      });
+    </script>
   </body>
 </html>
