@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, CheckCircle, Loader2, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ProcessStep } from '../types';
@@ -27,6 +27,26 @@ export const Contact: React.FC = () => {
     phone: '',
     message: ''
   });
+
+  // Contact 페이지에서 커스텀 커서 비활성화
+  useEffect(() => {
+    // 커스텀 커서 숨기기
+    const cursorDot = document.querySelector('.cursor-dot') as HTMLElement;
+    const cursorOutline = document.querySelector('.cursor-outline') as HTMLElement;
+
+    if (cursorDot) cursorDot.style.display = 'none';
+    if (cursorOutline) cursorOutline.style.display = 'none';
+
+    // body에 기본 커서 적용
+    document.body.style.cursor = 'auto';
+
+    return () => {
+      // 페이지 떠날 때 커스텀 커서 복원
+      if (cursorDot) cursorDot.style.display = 'block';
+      if (cursorOutline) cursorOutline.style.display = 'block';
+      document.body.style.cursor = 'none';
+    };
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
