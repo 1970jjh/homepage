@@ -122,7 +122,7 @@ export const AIChatbot: React.FC = () => {
     if (isOpen && messages.length === 0) {
       setMessages([{
         role: 'assistant',
-        content: '안녕하세요! JJ Creative 교육연구소 AI 상담사입니다 😊\n\n기업 교육에 관심을 가져주셔서 감사해요!\n혹시 현재 어떤 교육을 고민하고 계신가요?\n\n회사명과 교육 대상, 관심 있는 주제를 말씀해 주시면 딱 맞는 프로그램을 추천해 드릴게요!'
+        content: '안녕하세요! JJ Creative 교육연구소 AI 상담사입니다\n\n기업 교육에 관심을 가져주셔서 감사해요!\n혹시 현재 어떤 교육을 고민하고 계신가요?\n\n회사명과 교육 대상, 관심 있는 주제를 말씀해 주시면 딱 맞는 프로그램을 추천해 드릴게요!'
       }]);
     }
   }, [isOpen, messages.length]);
@@ -155,7 +155,7 @@ export const AIChatbot: React.FC = () => {
               },
               {
                 role: 'model',
-                parts: [{ text: '네, 알겠습니다! JJ Creative 교육연구소의 친근한 영업사원으로서 상냥하고 따뜻하게 상담해 드릴게요~ 😊' }]
+                parts: [{ text: '네, 알겠습니다! JJ Creative 교육연구소의 친근한 영업사원으로서 상냥하고 따뜻하게 상담해 드릴게요~' }]
               },
               ...messages.map(msg => ({
                 role: msg.role === 'user' ? 'user' : 'model',
@@ -186,7 +186,7 @@ export const AIChatbot: React.FC = () => {
       console.error('Chat error:', error);
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: '앗, 잠시 오류가 생겼어요 😅 괜찮으시다면 전재현 대표님께 직접 연락해 주세요!\n\n📱 010-8448-2354\n📧 jjh@jjcreative.co.kr\n\n친절하게 상담해 드릴 거예요!'
+        content: '앗, 잠시 오류가 생겼어요 괜찮으시다면 전재현 대표님께 직접 연락해 주세요!\n\n010-8448-2354\njjh@jjcreative.co.kr\n\n친절하게 상담해 드릴 거예요!'
       }]);
     } finally {
       setIsLoading(false);
@@ -220,7 +220,7 @@ export const AIChatbot: React.FC = () => {
           href={match[2]}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-purple-600 hover:text-purple-800 underline font-medium"
+          className="text-tech-cyan hover:text-tech-accent underline font-medium"
         >
           {match[1]}
         </a>
@@ -241,22 +241,22 @@ export const AIChatbot: React.FC = () => {
       {/* Chat Button - Right Bottom */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed right-6 bottom-6 z-50 w-14 h-14 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group ${isOpen ? 'scale-0' : 'scale-100'}`}
+        className={`fixed right-6 bottom-6 z-50 w-14 h-14 bg-gradient-to-r from-tech-cyan to-cyan-500 hover:from-tech-accent hover:to-cyan-400 text-tech-bg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group ${isOpen ? 'scale-0' : 'scale-100'}`}
         aria-label="AI Helper"
       >
         <Bot size={26} />
         <span className="absolute -top-1 -right-1 w-4 h-4 bg-jjorange rounded-full animate-pulse"></span>
 
         {/* Tooltip */}
-        <div className="absolute right-full mr-3 px-3 py-2 bg-slate-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+        <div className="absolute right-full mr-3 px-3 py-2 bg-tech-panel text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-tech-dim">
           AI 교육 상담
-          <div className="absolute right-0 top-1/2 translate-x-1 -translate-y-1/2 w-2 h-2 bg-slate-800 rotate-45"></div>
+          <div className="absolute right-0 top-1/2 translate-x-1 -translate-y-1/2 w-2 h-2 bg-tech-panel rotate-45 border-r border-t border-tech-dim"></div>
         </div>
       </button>
 
       {/* Chat Window - Right Bottom, 30% taller */}
       {isOpen && (
-        <div className="fixed right-6 bottom-6 z-50 w-[380px] h-[680px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-[scaleIn_0.3s_ease-out] border border-gray-200">
+        <div className="fixed right-6 bottom-6 z-50 w-[380px] h-[680px] bg-tech-panel rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-[scaleIn_0.3s_ease-out] border border-tech-dim">
           <style>{`
             @keyframes scaleIn {
               from { transform: scale(0.8); opacity: 0; }
@@ -265,14 +265,14 @@ export const AIChatbot: React.FC = () => {
           `}</style>
 
           {/* Header */}
-          <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-4 flex items-center justify-between">
+          <div className="bg-gradient-to-r from-tech-cyan to-cyan-600 text-tech-bg p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                 <Sparkles size={20} />
               </div>
               <div>
                 <h3 className="font-bold">JJ AI Helper</h3>
-                <p className="text-xs text-white/80">교육 상담 AI 어시스턴트</p>
+                <p className="text-xs text-tech-bg/80 font-mono">교육 상담 AI 어시스턴트</p>
               </div>
             </div>
             <button
@@ -284,7 +284,7 @@ export const AIChatbot: React.FC = () => {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-tech-bg">
             {messages.map((message, index) => (
               <div
                 key={index}
@@ -292,15 +292,15 @@ export const AIChatbot: React.FC = () => {
               >
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${
                   message.role === 'user'
-                    ? 'bg-jjnavy text-white'
-                    : 'bg-gradient-to-r from-purple-500 to-indigo-500 text-white'
+                    ? 'bg-jjorange text-white'
+                    : 'bg-gradient-to-r from-tech-cyan to-cyan-500 text-tech-bg'
                 }`}>
                   {message.role === 'user' ? <User size={16} /> : <Bot size={16} />}
                 </div>
                 <div className={`max-w-[80%] px-4 py-3 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap ${
                   message.role === 'user'
-                    ? 'bg-jjnavy text-white rounded-tr-none'
-                    : 'bg-white text-gray-700 rounded-tl-none shadow-sm border border-gray-100'
+                    ? 'bg-jjorange text-white rounded-tr-none'
+                    : 'bg-tech-panel text-gray-300 rounded-tl-none border border-tech-dim'
                 }`}>
                   {message.role === 'assistant' ? renderMessageContent(message.content) : message.content}
                 </div>
@@ -309,14 +309,14 @@ export const AIChatbot: React.FC = () => {
 
             {isLoading && (
               <div className="flex gap-2">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center text-white shrink-0">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-tech-cyan to-cyan-500 flex items-center justify-center text-tech-bg shrink-0">
                   <Bot size={16} />
                 </div>
-                <div className="bg-white px-4 py-3 rounded-2xl rounded-tl-none shadow-sm border border-gray-100">
+                <div className="bg-tech-panel px-4 py-3 rounded-2xl rounded-tl-none border border-tech-dim">
                   <div className="flex gap-1">
-                    <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
-                    <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
-                    <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                    <span className="w-2 h-2 bg-tech-cyan rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                    <span className="w-2 h-2 bg-tech-cyan rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                    <span className="w-2 h-2 bg-tech-cyan rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
                   </div>
                 </div>
               </div>
@@ -326,7 +326,7 @@ export const AIChatbot: React.FC = () => {
           </div>
 
           {/* Input */}
-          <div className="p-4 bg-white border-t border-gray-100">
+          <div className="p-4 bg-tech-panel border-t border-tech-dim">
             <div className="flex gap-2 items-end">
               <textarea
                 ref={textareaRef}
@@ -335,19 +335,19 @@ export const AIChatbot: React.FC = () => {
                 onKeyDown={handleKeyDown}
                 placeholder="메시지를 입력하세요... (Shift+Enter: 줄바꿈)"
                 rows={1}
-                className="flex-1 px-4 py-3 bg-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white transition-all resize-none overflow-hidden"
+                className="flex-1 px-4 py-3 bg-tech-bg border border-tech-dim rounded-xl text-sm text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-tech-cyan focus:border-transparent transition-all resize-none overflow-hidden"
                 disabled={isLoading}
                 style={{ minHeight: '44px', maxHeight: '120px' }}
               />
               <button
                 onClick={sendMessage}
                 disabled={!input.trim() || isLoading}
-                className="px-4 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
+                className="px-4 py-3 bg-gradient-to-r from-tech-cyan to-cyan-500 hover:from-tech-accent hover:to-cyan-400 text-tech-bg rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
               >
                 <Send size={18} />
               </button>
             </div>
-            <p className="text-[10px] text-gray-400 mt-2 text-center">
+            <p className="text-[10px] text-gray-600 mt-2 text-center font-mono">
               Powered by Gemini 2.0 Flash
             </p>
           </div>

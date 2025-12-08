@@ -21,30 +21,30 @@ const clientLogos = [
 
 // 워드클라우드 키워드들
 const wordCloudKeywords = [
-  { text: '협력', size: 'text-5xl', color: 'text-jjnavy' },
-  { text: '소통', size: 'text-5xl', color: 'text-blue-600' },
+  { text: '협력', size: 'text-5xl', color: 'text-tech-cyan' },
+  { text: '소통', size: 'text-5xl', color: 'text-blue-400' },
   { text: '즐거움', size: 'text-4xl', color: 'text-jjorange' },
-  { text: '성장', size: 'text-4xl', color: 'text-gray-800' },
-  { text: '효율화', size: 'text-4xl', color: 'text-gray-700' },
-  { text: '힐링', size: 'text-3xl', color: 'text-cyan-600' },
-  { text: '꿀잼', size: 'text-3xl', color: 'text-green-600' },
-  { text: '링커십', size: 'text-3xl', color: 'text-blue-500' },
-  { text: '성취감', size: 'text-2xl', color: 'text-purple-600' },
-  { text: '재미', size: 'text-2xl', color: 'text-pink-500' },
-  { text: '단합', size: 'text-2xl', color: 'text-gray-600' },
-  { text: '협업', size: 'text-2xl', color: 'text-indigo-600' },
-  { text: '원팀!', size: 'text-xl', color: 'text-red-500' },
-  { text: '감동', size: 'text-xl', color: 'text-amber-600' },
-  { text: '열정', size: 'text-xl', color: 'text-orange-500' },
+  { text: '성장', size: 'text-4xl', color: 'text-white' },
+  { text: '효율화', size: 'text-4xl', color: 'text-gray-300' },
+  { text: '힐링', size: 'text-3xl', color: 'text-cyan-400' },
+  { text: '꿀잼', size: 'text-3xl', color: 'text-green-400' },
+  { text: '링커십', size: 'text-3xl', color: 'text-blue-400' },
+  { text: '성취감', size: 'text-2xl', color: 'text-purple-400' },
+  { text: '재미', size: 'text-2xl', color: 'text-pink-400' },
+  { text: '단합', size: 'text-2xl', color: 'text-gray-400' },
+  { text: '협업', size: 'text-2xl', color: 'text-indigo-400' },
+  { text: '원팀!', size: 'text-xl', color: 'text-red-400' },
+  { text: '감동', size: 'text-xl', color: 'text-amber-400' },
+  { text: '열정', size: 'text-xl', color: 'text-orange-400' },
   { text: '마인드셋', size: 'text-lg', color: 'text-gray-500' },
-  { text: '리프레쉬', size: 'text-lg', color: 'text-teal-500' },
-  { text: '실제적 도움', size: 'text-lg', color: 'text-gray-600' },
-  { text: '깨달음', size: 'text-lg', color: 'text-violet-500' },
-  { text: 'Good', size: 'text-lg', color: 'text-green-500' },
-  { text: '레전드~', size: 'text-base', color: 'text-yellow-600' },
-  { text: '유익함', size: 'text-base', color: 'text-blue-400' },
+  { text: '리프레쉬', size: 'text-lg', color: 'text-teal-400' },
+  { text: '실제적 도움', size: 'text-lg', color: 'text-gray-400' },
+  { text: '깨달음', size: 'text-lg', color: 'text-violet-400' },
+  { text: 'Good', size: 'text-lg', color: 'text-green-400' },
+  { text: '레전드~', size: 'text-base', color: 'text-yellow-400' },
+  { text: '유익함', size: 'text-base', color: 'text-blue-300' },
   { text: '최적화', size: 'text-base', color: 'text-gray-500' },
-  { text: '행복', size: 'text-base', color: 'text-pink-400' },
+  { text: '행복', size: 'text-base', color: 'text-pink-300' },
   { text: 'POWER', size: 'text-base', color: 'text-red-400' },
 ];
 
@@ -99,11 +99,11 @@ const reviews = [
 
 export const Reference: React.FC = () => {
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-tech-bg">
       {/* Header */}
-      <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center bg-gradient-to-br from-jjnavy via-slate-800 to-jjnavy">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22%23fff%22%20fill-opacity%3D%220.3%22%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E')]"></div>
+      <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center bg-gradient-to-br from-tech-bg via-tech-panel to-tech-bg">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-grid-pattern opacity-[0.05]" style={{ backgroundSize: '40px 40px' }}></div>
         </div>
         <div className="relative z-10 text-center text-white px-4">
           <motion.div
@@ -114,6 +114,7 @@ export const Reference: React.FC = () => {
             <div className="flex items-center justify-center gap-2 mb-4">
               <Award className="w-8 h-8 text-jjorange" />
             </div>
+            <span className="font-mono text-tech-cyan text-sm tracking-widest mb-4 block">[ REFERENCE ]</span>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Reference</h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               국내 주요 기업들과 함께한 JJ Creative의 교육 성과
@@ -123,15 +124,16 @@ export const Reference: React.FC = () => {
       </section>
 
       {/* Client Logos */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-tech-panel relative">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" style={{ backgroundSize: '40px 40px' }}></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-jjnavy/10 text-jjnavy px-4 py-2 rounded-full text-sm font-bold mb-4">
+            <div className="inline-flex items-center gap-2 bg-tech-cyan/20 text-tech-cyan px-4 py-2 rounded-full text-sm font-bold mb-4 font-mono">
               <Building2 size={16} />
               OUR CLIENTS
             </div>
-            <h2 className="text-3xl font-bold text-jjnavy mb-4">함께한 기업들</h2>
-            <p className="text-gray-600">국내 주요 대기업 및 기관들과 함께 교육을 진행하고 있습니다.</p>
+            <h2 className="text-3xl font-bold text-white mb-4">함께한 기업들</h2>
+            <p className="text-gray-400">국내 주요 대기업 및 기관들과 함께 교육을 진행하고 있습니다.</p>
           </div>
 
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -142,16 +144,16 @@ export const Reference: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex items-center justify-center h-24"
+                className="bg-tech-bg rounded-xl p-6 border border-tech-dim hover:border-tech-cyan transition-all flex items-center justify-center h-24 tech-border"
               >
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="max-h-12 max-w-full object-contain grayscale hover:grayscale-0 transition-all"
+                  className="max-h-12 max-w-full object-contain opacity-60 hover:opacity-100 transition-all"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
-                    target.parentElement!.innerHTML = `<span class="text-sm font-bold text-gray-400">${client.name}</span>`;
+                    target.parentElement!.innerHTML = `<span class="text-sm font-bold text-gray-500">${client.name}</span>`;
                   }}
                 />
               </motion.div>
@@ -161,11 +163,13 @@ export const Reference: React.FC = () => {
       </section>
 
       {/* Word Cloud Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-tech-bg relative">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" style={{ backgroundSize: '40px 40px' }}></div>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-jjnavy mb-4">교육생들의 한마디</h2>
-            <p className="text-gray-600">"오늘 과정에 대한 소감을 한 단어로 표현한다면?"</p>
+            <span className="font-mono text-tech-cyan text-sm tracking-widest mb-4 block">// FEEDBACK</span>
+            <h2 className="text-3xl font-bold text-white mb-4">교육생들의 한마디</h2>
+            <p className="text-gray-400">"오늘 과정에 대한 소감을 한 단어로 표현한다면?"</p>
           </div>
 
           <motion.div
@@ -173,7 +177,7 @@ export const Reference: React.FC = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 shadow-lg border border-gray-100"
+            className="bg-tech-panel rounded-3xl p-8 md:p-12 border border-tech-dim"
           >
             <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
               {wordCloudKeywords.map((word, idx) => (
@@ -197,10 +201,11 @@ export const Reference: React.FC = () => {
       </section>
 
       {/* Reviews Section */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-tech-panel relative">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" style={{ backgroundSize: '40px 40px' }}></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-jjorange/20 text-jjorange px-4 py-2 rounded-full text-sm font-bold mb-4">
+            <div className="inline-flex items-center gap-2 bg-jjorange/20 text-jjorange px-4 py-2 rounded-full text-sm font-bold mb-4 font-mono">
               <Users size={16} />
               TESTIMONIALS
             </div>
@@ -216,9 +221,9 @@ export const Reference: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-gray-800 rounded-2xl p-6 relative"
+                className="bg-tech-bg rounded-2xl p-6 relative border border-tech-dim hover:border-tech-cyan transition-all tech-border"
               >
-                <Quote className="absolute top-4 right-4 w-8 h-8 text-gray-700" />
+                <Quote className="absolute top-4 right-4 w-8 h-8 text-tech-dim" />
                 <div className="flex gap-1 mb-4">
                   {[1, 2, 3, 4, 5].map((s) => (
                     <Star key={s} size={14} fill="#F47C20" stroke="none" />
@@ -227,9 +232,9 @@ export const Reference: React.FC = () => {
                 <p className="text-gray-300 text-sm leading-relaxed mb-6">
                   "{review.text}"
                 </p>
-                <div className="border-t border-gray-700 pt-4">
+                <div className="border-t border-tech-dim pt-4">
                   <p className="text-white font-bold text-sm">{review.company}</p>
-                  <p className="text-gray-500 text-xs">{review.program}</p>
+                  <p className="text-gray-500 text-xs font-mono">{review.program}</p>
                 </div>
               </motion.div>
             ))}
@@ -238,37 +243,61 @@ export const Reference: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-jjorange">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-jjorange relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.1]" style={{ backgroundSize: '40px 40px' }}></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
-            <div>
-              <p className="text-4xl md:text-5xl font-bold mb-2">500+</p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+            >
+              <p className="text-4xl md:text-5xl font-bold mb-2 font-mono">500+</p>
               <p className="text-white/80 text-sm">누적 교육 기업</p>
-            </div>
-            <div>
-              <p className="text-4xl md:text-5xl font-bold mb-2">50,000+</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+            >
+              <p className="text-4xl md:text-5xl font-bold mb-2 font-mono">50,000+</p>
               <p className="text-white/80 text-sm">누적 교육 인원</p>
-            </div>
-            <div>
-              <p className="text-4xl md:text-5xl font-bold mb-2">4.8</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+            >
+              <p className="text-4xl md:text-5xl font-bold mb-2 font-mono">4.8</p>
               <p className="text-white/80 text-sm">평균 만족도</p>
-            </div>
-            <div>
-              <p className="text-4xl md:text-5xl font-bold mb-2">95%</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+            >
+              <p className="text-4xl md:text-5xl font-bold mb-2 font-mono">95%</p>
               <p className="text-white/80 text-sm">재계약률</p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-jjnavy text-center">
-        <div className="max-w-4xl mx-auto px-4">
+      <section className="py-16 bg-gradient-to-r from-tech-panel to-tech-bg text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.05]" style={{ backgroundSize: '40px 40px' }}></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-tech-cyan/5 rounded-full blur-3xl"></div>
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          <span className="font-mono text-tech-cyan text-sm tracking-widest mb-4 block">// JOIN_US</span>
           <h2 className="text-2xl font-bold text-white mb-4">귀사도 JJ Creative와 함께하세요!</h2>
           <p className="text-gray-400 mb-8">맞춤형 기업 교육 프로그램에 대해 문의해 주세요.</p>
           <a
             href="#/contact"
-            className="inline-flex items-center gap-2 bg-jjorange hover:bg-jjorange/90 text-white px-8 py-4 rounded-xl font-bold transition-all hover:-translate-y-1"
+            className="inline-flex items-center gap-2 bg-tech-cyan hover:bg-tech-accent text-tech-bg px-8 py-4 rounded-xl font-bold transition-all hover:-translate-y-1"
           >
             교육 문의하기
           </a>

@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { X, ZoomIn } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const PROGRAM_TITLES = [
   "하이퍼포먼스 매니지먼트",
@@ -45,33 +46,46 @@ export const Infographic: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-tech-bg">
       {/* Header */}
       <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80"
             alt="Infographic Background"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-jjnavy/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-tech-bg/90 via-tech-bg/80 to-tech-bg"></div>
+          <div className="absolute inset-0 bg-grid-pattern opacity-[0.05]" style={{ backgroundSize: '40px 40px' }}></div>
         </div>
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">인포그래픽</h1>
-          <p className="text-xl text-gray-200 max-w-2xl mx-auto">
-            JJ Creative 교육연구소의 프로그램을 한눈에 살펴보세요
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="font-mono text-tech-cyan text-sm tracking-widest mb-4 block">[ INFOGRAPHIC ]</span>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">인포그래픽</h1>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              JJ Creative 교육연구소의 프로그램을 한눈에 살펴보세요
+            </p>
+          </motion.div>
         </div>
       </section>
 
       {/* Infographic Images */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-tech-panel relative">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" style={{ backgroundSize: '40px 40px' }}></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {INFOGRAPHIC_IMAGES.map((image, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden group cursor-pointer hover:shadow-xl transition-shadow"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: (index % 4) * 0.1 }}
+                className="bg-tech-bg rounded-2xl overflow-hidden group cursor-pointer border border-tech-dim hover:border-tech-cyan transition-all tech-border"
                 onClick={() => setSelectedImage(image.url)}
               >
                 <div className="relative overflow-hidden">
@@ -80,16 +94,16 @@ export const Infographic: React.FC = () => {
                     alt={image.title}
                     className="w-full h-auto"
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                    <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 rounded-full p-3">
-                      <ZoomIn size={24} className="text-jjnavy" />
+                  <div className="absolute inset-0 bg-tech-bg/0 group-hover:bg-tech-bg/30 transition-colors flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-tech-cyan/90 rounded-full p-3">
+                      <ZoomIn size={24} className="text-tech-bg" />
                     </div>
                   </div>
                 </div>
                 <div className="p-3 text-center">
-                  <h3 className="text-sm font-bold text-jjnavy">{image.title}</h3>
+                  <h3 className="text-sm font-bold text-white">{image.title}</h3>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -98,17 +112,17 @@ export const Infographic: React.FC = () => {
       {/* Image Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-tech-bg/95 backdrop-blur-sm"
           onClick={() => setSelectedImage(null)}
         >
           <button
             onClick={() => setSelectedImage(null)}
-            className="absolute top-6 right-6 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors z-10"
+            className="absolute top-6 right-6 w-12 h-12 bg-tech-dim hover:bg-tech-cyan/30 rounded-full flex items-center justify-center transition-colors z-10"
           >
             <X size={28} className="text-white" />
           </button>
           <div
-            className="relative w-[95vw] h-[90vh] overflow-auto bg-white rounded-2xl"
+            className="relative w-[95vw] h-[90vh] overflow-auto bg-tech-panel rounded-2xl border border-tech-dim"
             onClick={(e) => e.stopPropagation()}
           >
             <img
