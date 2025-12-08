@@ -7,8 +7,7 @@ import { programs } from '../data/programsData';
 import { AIChatbot } from './AIChatbot';
 
 const navItems: NavItem[] = [
-  { label: 'Home', path: '/' },
-  { label: 'Company', path: '/about' },
+  { label: 'Company', path: '/' },
   { label: 'People', path: '/people' },
   { label: 'Programs', path: '/programs' },
   { label: 'Infographic', path: '/infographic' },
@@ -62,8 +61,7 @@ export const Layout: React.FC = () => {
     const lowerTerm = searchTerm.toLowerCase();
 
     const pages = [
-      { title: 'Home', subtitle: 'Main Page', path: '/', type: 'PAGE' },
-      { title: 'Company', subtitle: 'About Us', path: '/about', type: 'PAGE' },
+      { title: 'Company', subtitle: 'About Us', path: '/', type: 'PAGE' },
       { title: 'People', subtitle: 'Instructors & Experts', path: '/people', type: 'PAGE' },
       { title: 'Programs', subtitle: 'Curriculum', path: '/programs', type: 'PAGE' },
       { title: 'Infographic', subtitle: 'Program Overview', path: '/infographic', type: 'PAGE' },
@@ -309,23 +307,9 @@ export const Layout: React.FC = () => {
 
             {/* Sitemap Grid - Tech Style */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Home */}
-              <div className="tech-border bg-tech-bg p-6">
-                <span className="text-tech-cyan font-mono text-xs">01_HOME</span>
-                <h3 className="text-lg font-bold text-white mt-2 mb-2">Home</h3>
-                <p className="text-gray-500 text-sm mb-4">메인 페이지</p>
-                <NavLink
-                  to="/"
-                  onClick={() => setIsSitemapOpen(false)}
-                  className="cursor-hover inline-flex items-center gap-2 text-sm font-bold text-tech-cyan hover:text-white transition-colors font-mono"
-                >
-                  ACCESS &gt; <ExternalLink size={14} />
-                </NavLink>
-              </div>
-
               {/* Company */}
               <div className="tech-border bg-tech-bg p-6">
-                <span className="text-tech-cyan font-mono text-xs">02_COMPANY</span>
+                <span className="text-tech-cyan font-mono text-xs">01_COMPANY</span>
                 <h3 className="text-lg font-bold text-white mt-2 mb-2">Company</h3>
                 <p className="text-gray-500 text-sm mb-4">JJ Creative 교육연구소 소개</p>
                 <NavLink
@@ -339,7 +323,7 @@ export const Layout: React.FC = () => {
 
               {/* People */}
               <div className="tech-border bg-tech-bg p-6">
-                <span className="text-tech-cyan font-mono text-xs">03_PEOPLE</span>
+                <span className="text-tech-cyan font-mono text-xs">02_PEOPLE</span>
                 <h3 className="text-lg font-bold text-white mt-2 mb-2">People</h3>
                 <p className="text-gray-500 text-sm mb-4">전문 강사진 소개</p>
                 <NavLink
@@ -353,7 +337,7 @@ export const Layout: React.FC = () => {
 
               {/* Programs - Large Card */}
               <div className="tech-border bg-gradient-to-br from-tech-cyan/10 to-tech-bg p-6 md:col-span-2 lg:col-span-2 border border-tech-cyan/30">
-                <span className="text-tech-cyan font-mono text-xs">04_PROGRAMS</span>
+                <span className="text-tech-cyan font-mono text-xs">03_PROGRAMS</span>
                 <h3 className="text-lg font-bold text-white mt-2 mb-2">Programs</h3>
                 <p className="text-gray-400 text-sm mb-4">교육 프로그램 안내</p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-4">
@@ -379,7 +363,7 @@ export const Layout: React.FC = () => {
 
               {/* Infographic */}
               <div className="tech-border bg-tech-bg p-6">
-                <span className="text-tech-cyan font-mono text-xs">05_INFOGRAPHIC</span>
+                <span className="text-tech-cyan font-mono text-xs">04_INFOGRAPHIC</span>
                 <h3 className="text-lg font-bold text-white mt-2 mb-2">Infographic</h3>
                 <p className="text-gray-500 text-sm mb-4">프로그램 인포그래픽</p>
                 <NavLink
@@ -393,7 +377,7 @@ export const Layout: React.FC = () => {
 
               {/* AI Agent */}
               <div className="tech-border bg-gradient-to-br from-purple-900/30 to-tech-bg p-6 border border-purple-500/30">
-                <span className="text-purple-400 font-mono text-xs">06_AI_AGENT</span>
+                <span className="text-purple-400 font-mono text-xs">05_AI_AGENT</span>
                 <h3 className="text-lg font-bold text-white mt-2 mb-2">AI Agent</h3>
                 <p className="text-gray-500 text-sm mb-4">AI 에이전트 앱 소개</p>
                 <NavLink
@@ -407,7 +391,7 @@ export const Layout: React.FC = () => {
 
               {/* Reference */}
               <div className="tech-border bg-tech-bg p-6">
-                <span className="text-tech-cyan font-mono text-xs">07_REFERENCE</span>
+                <span className="text-tech-cyan font-mono text-xs">06_REFERENCE</span>
                 <h3 className="text-lg font-bold text-white mt-2 mb-2">Reference</h3>
                 <p className="text-gray-500 text-sm mb-4">고객사 및 교육 후기</p>
                 <NavLink
@@ -421,7 +405,7 @@ export const Layout: React.FC = () => {
 
               {/* Contact */}
               <div className="tech-border bg-tech-bg p-6">
-                <span className="text-tech-cyan font-mono text-xs">08_CONTACT</span>
+                <span className="text-tech-cyan font-mono text-xs">07_CONTACT</span>
                 <h3 className="text-lg font-bold text-white mt-2 mb-2">Contact</h3>
                 <p className="text-gray-500 text-sm mb-4">문의 및 상담 신청</p>
                 <NavLink
