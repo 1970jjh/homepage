@@ -208,7 +208,7 @@ export const AIAgent: React.FC = () => {
                         {app.status === 'available-auth' ? (
                           <span className="text-sm text-jjorange font-bold">관리자 인증 요망</span>
                         ) : (
-                          <span className="text-sm text-gray-400 font-medium font-mono">#{app.id}</span>
+                          <span className="text-sm text-green-400 font-bold">{app.name}</span>
                         )}
                       </div>
                       <div className="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full font-mono">
@@ -232,9 +232,9 @@ export const AIAgent: React.FC = () => {
                   <>
                     <div className="h-48 bg-gradient-to-br from-tech-bg to-tech-panel flex items-center justify-center relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-tech-cyan/10"></div>
-                      <div className="text-center">
+                      <div className="text-center px-4">
                         {app.icon ? <app.icon className="w-16 h-16 text-blue-400 mx-auto mb-2" /> : <Bot className="w-16 h-16 text-tech-dim mx-auto mb-2" />}
-                        <span className="text-sm text-gray-400 font-medium font-mono">#{app.id}</span>
+                        <span className="text-sm text-blue-300 font-bold line-clamp-2">{app.name}</span>
                       </div>
                       <div className="absolute top-4 right-4 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full font-mono">
                         Upload Soon
@@ -259,7 +259,7 @@ export const AIAgent: React.FC = () => {
                       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-tech-cyan/10"></div>
                       <div className="text-center">
                         <Bot className="w-16 h-16 text-tech-dim mx-auto mb-2" />
-                        <span className="text-sm text-gray-500 font-medium font-mono">{app.name}</span>
+                        <span className="text-sm text-gray-500 font-medium">Coming Soon</span>
                       </div>
                       <div className="absolute top-4 right-4 bg-jjorange text-white text-xs font-bold px-3 py-1 rounded-full font-mono">
                         Coming Soon
