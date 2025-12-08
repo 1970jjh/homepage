@@ -1,10 +1,11 @@
 
 import React from 'react';
-import { Bot, Sparkles, Cpu, Zap, ArrowRight, Rocket, Target, TrendingUp, Lightbulb, Users, Brain } from 'lucide-react';
+import { Bot, Sparkles, Cpu, Zap, ArrowRight, Rocket, Target, TrendingUp, Lightbulb, Users, Brain, Map, BarChart3, UserCheck, MessageSquare, Star, Activity, Clock, Shield, Compass, TreePine, Timer, Scale, Route } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // AI Agent Apps 데이터
 const aiApps = [
+  // Available with Auth Required (#1-4)
   {
     id: 1,
     name: 'STRATEGIC POSITIONING',
@@ -13,7 +14,7 @@ const aiApps = [
     icon: Target,
     iconClass: 'text-jjorange',
     bgClass: 'from-jjorange/20',
-    available: true,
+    status: 'available-auth',
   },
   {
     id: 2,
@@ -23,7 +24,7 @@ const aiApps = [
     icon: TrendingUp,
     iconClass: 'text-tech-cyan',
     bgClass: 'from-tech-cyan/20',
-    available: true,
+    status: 'available-auth',
   },
   {
     id: 3,
@@ -33,7 +34,7 @@ const aiApps = [
     icon: Lightbulb,
     iconClass: 'text-yellow-400',
     bgClass: 'from-yellow-400/20',
-    available: true,
+    status: 'available-auth',
   },
   {
     id: 4,
@@ -43,8 +44,9 @@ const aiApps = [
     icon: Users,
     iconClass: 'text-purple-400',
     bgClass: 'from-purple-400/20',
-    available: true,
+    status: 'available-auth',
   },
+  // Available without Auth (#5-6)
   {
     id: 5,
     name: '집단지성의 팀',
@@ -53,16 +55,38 @@ const aiApps = [
     icon: Brain,
     iconClass: 'text-green-400',
     bgClass: 'from-green-400/20',
-    available: true,
+    status: 'available',
   },
-  // Coming Soon Apps
-  { id: 6, name: 'AI App #6', available: false },
-  { id: 7, name: 'AI App #7', available: false },
-  { id: 8, name: 'AI App #8', available: false },
-  { id: 9, name: 'AI App #9', available: false },
-  { id: 10, name: 'AI App #10', available: false },
-  { id: 11, name: 'AI App #11', available: false },
-  { id: 12, name: 'AI App #12', available: false },
+  {
+    id: 6,
+    name: '고객여정지도',
+    description: '고객 경험을 시각화하고 터치포인트를 분석하는 AI 기반 고객여정 매핑 도구입니다.',
+    url: 'https://gemini.google.com/share/dea707ec9465',
+    icon: Map,
+    iconClass: 'text-pink-400',
+    bgClass: 'from-pink-400/20',
+    status: 'available',
+  },
+  // Upload Soon Apps (#7-19)
+  { id: 7, name: 'Quinn 조직문화 유형 진단', icon: BarChart3, status: 'upload-soon' },
+  { id: 8, name: '상황대응 리더십 진단 및 시뮬레이션', icon: Compass, status: 'upload-soon' },
+  { id: 9, name: 'One on One 리더십 시뮬레이션', icon: MessageSquare, status: 'upload-soon' },
+  { id: 10, name: '켈리 팔로워십 진단 및 시뮬레이션', icon: UserCheck, status: 'upload-soon' },
+  { id: 11, name: '셀프 리더십 진단 및 시뮬레이션', icon: Star, status: 'upload-soon' },
+  { id: 12, name: '강점 진단 및 역량개발', icon: Activity, status: 'upload-soon' },
+  { id: 13, name: '저성과자 역량 진단', icon: Target, status: 'upload-soon' },
+  { id: 14, name: '팀빌딩 크리에이터', icon: Users, status: 'upload-soon' },
+  { id: 15, name: '경영전략 분석', icon: TrendingUp, status: 'upload-soon' },
+  { id: 16, name: '로직트리 문제해결 마스터', icon: TreePine, status: 'upload-soon' },
+  { id: 17, name: '시간관리 스킬 업', icon: Timer, status: 'upload-soon' },
+  { id: 18, name: '갈등관리 스킬 업', icon: Scale, status: 'upload-soon' },
+  { id: 19, name: '은퇴 준비 로드맵', icon: Route, status: 'upload-soon' },
+  // Coming Soon Apps (#20-24)
+  { id: 20, name: 'AI App #20', status: 'coming-soon' },
+  { id: 21, name: 'AI App #21', status: 'coming-soon' },
+  { id: 22, name: 'AI App #22', status: 'coming-soon' },
+  { id: 23, name: 'AI App #23', status: 'coming-soon' },
+  { id: 24, name: 'AI App #24', status: 'coming-soon' },
 ];
 
 export const AIAgent: React.FC = () => {
@@ -171,17 +195,21 @@ export const AIAgent: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                transition={{ duration: 0.5, delay: idx * 0.05 }}
                 className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all group tech-border"
               >
-                {app.available && app.icon && app.url ? (
-                  // 사용 가능한 앱
+                {(app.status === 'available-auth' || app.status === 'available') && app.icon && app.url ? (
+                  // Available 앱 (인증 필요 또는 인증 불필요)
                   <a href={app.url} target="_blank" rel="noopener noreferrer" className="block">
                     <div className="h-48 bg-gradient-to-br from-tech-bg to-tech-panel flex items-center justify-center relative overflow-hidden">
                       <div className={`absolute inset-0 bg-gradient-to-br ${app.bgClass} to-tech-cyan/10`}></div>
                       <div className="text-center relative z-10">
                         <app.icon className={`w-16 h-16 ${app.iconClass} mx-auto mb-2`} />
-                        <span className="text-sm text-gray-400 font-medium font-mono">#{app.id}</span>
+                        {app.status === 'available-auth' ? (
+                          <span className="text-sm text-jjorange font-bold">관리자 인증 요망</span>
+                        ) : (
+                          <span className="text-sm text-gray-400 font-medium font-mono">#{app.id}</span>
+                        )}
                       </div>
                       <div className="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full font-mono">
                         Available
@@ -199,6 +227,31 @@ export const AIAgent: React.FC = () => {
                       </div>
                     </div>
                   </a>
+                ) : app.status === 'upload-soon' ? (
+                  // Upload Soon 앱
+                  <>
+                    <div className="h-48 bg-gradient-to-br from-tech-bg to-tech-panel flex items-center justify-center relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-tech-cyan/10"></div>
+                      <div className="text-center">
+                        {app.icon ? <app.icon className="w-16 h-16 text-blue-400 mx-auto mb-2" /> : <Bot className="w-16 h-16 text-tech-dim mx-auto mb-2" />}
+                        <span className="text-sm text-gray-400 font-medium font-mono">#{app.id}</span>
+                      </div>
+                      <div className="absolute top-4 right-4 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full font-mono">
+                        Upload Soon
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-lg font-bold text-white mb-2">{app.name}</h3>
+                      <p className="text-gray-500 text-sm mb-4">곧 업로드 예정입니다.</p>
+                      <div className="flex items-center justify-between pt-4 border-t border-tech-dim">
+                        <div className="flex gap-2">
+                          <span className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full font-mono">AI</span>
+                          <span className="px-2 py-1 bg-tech-cyan/20 text-tech-cyan text-xs rounded-full font-mono">Education</span>
+                        </div>
+                        <ArrowRight className="w-5 h-5 text-gray-500" />
+                      </div>
+                    </div>
+                  </>
                 ) : (
                   // Coming Soon 앱
                   <>
