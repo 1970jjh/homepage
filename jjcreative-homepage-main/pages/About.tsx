@@ -32,12 +32,12 @@ export const About: React.FC = () => {
           </motion.div>
 
           {/* YouTube Videos - Horizontal Layout */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-7xl mx-auto px-4">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 w-full px-8 md:px-16 lg:px-24">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="aspect-video bg-tech-panel rounded-lg overflow-hidden border border-white/10 hover:border-tech-cyan/50 transition-colors"
+              className="aspect-video bg-tech-panel rounded-xl overflow-hidden border-2 border-white/20 hover:border-tech-cyan/50 transition-colors shadow-2xl"
             >
               <iframe
                 src="https://www.youtube.com/embed/g7vOJc3t5_s"
@@ -52,7 +52,7 @@ export const About: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="aspect-video bg-tech-panel rounded-lg overflow-hidden border border-white/10 hover:border-tech-cyan/50 transition-colors"
+              className="aspect-video bg-tech-panel rounded-xl overflow-hidden border-2 border-white/20 hover:border-tech-cyan/50 transition-colors shadow-2xl"
             >
               <iframe
                 src="https://www.youtube.com/embed/4XTPnf4B1SU"
