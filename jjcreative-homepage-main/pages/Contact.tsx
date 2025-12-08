@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, CheckCircle, Loader2 } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle, Loader2, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ProcessStep } from '../types';
 
@@ -12,38 +12,70 @@ const steps: ProcessStep[] = [
   { step: 5, title: "결과 보고", description: "만족도 및 리포트" }
 ];
 
+// Web3Forms Access Key - 본인의 키로 변경 필요
+// https://web3forms.com 에서 무료로 발급받을 수 있습니다
+const WEB3FORMS_ACCESS_KEY = "ee4cec17-5dc3-45a2-999a-184b29f4aba7";
+
 export const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
+  const [formData, setFormData] = useState({
+    company: '',
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError('');
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
+    const submitData = new FormData();
+    submitData.append('access_key', WEB3FORMS_ACCESS_KEY);
+    submitData.append('subject', `[JJ Creative 문의] ${formData.company} - ${formData.name}님`);
+    submitData.append('from_name', 'JJ Creative 홈페이지');
+    submitData.append('company', formData.company);
+    submitData.append('name', formData.name);
+    submitData.append('email', formData.email);
+    submitData.append('phone', formData.phone);
+    submitData.append('message', formData.message);
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: formData,
+        body: submitData,
       });
 
       const data = await response.json();
 
       if (data.success) {
         setIsSuccess(true);
-        form.reset();
+        setFormData({ company: '', name: '', email: '', phone: '', message: '' });
       } else {
-        setError('전송에 실패했습니다. 다시 시도해주세요.');
+        setError('전송에 실패했습니다. 이메일로 직접 문의해주세요: jjh@jjcreative.co.kr');
       }
     } catch {
-      setError('네트워크 오류가 발생했습니다. 다시 시도해주세요.');
+      setError('네트워크 오류가 발생했습니다. 이메일로 직접 문의해주세요: jjh@jjcreative.co.kr');
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  // 이메일로 직접 문의하기 (폼 전송 실패 시 대안)
+  const handleEmailFallback = () => {
+    const subject = encodeURIComponent(`[JJ Creative 문의] ${formData.company || '문의'}`);
+    const body = encodeURIComponent(
+      `회사명: ${formData.company}\n이름: ${formData.name}\n이메일: ${formData.email}\n연락처: ${formData.phone}\n\n문의내용:\n${formData.message}`
+    );
+    window.location.href = `mailto:jjh@jjcreative.co.kr?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -172,18 +204,15 @@ export const Contact: React.FC = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  {/* Web3Forms Access Key */}
-                  <input type="hidden" name="access_key" value="ee4cec17-5dc3-45a2-999a-184b29f4aba7" />
-                  <input type="hidden" name="subject" value="JJ Creative 홈페이지 문의" />
-                  <input type="hidden" name="from_name" value="JJ Creative 홈페이지" />
-
                   <div>
                     <label className="block text-sm font-medium text-gray-400 mb-1 font-mono">회사명</label>
                     <input
                       type="text"
                       name="company"
+                      value={formData.company}
+                      onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-tech-bg border border-tech-dim rounded-lg focus:ring-2 focus:ring-tech-cyan focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
+                      className="w-full px-4 py-3 bg-tech-bg border border-tech-dim rounded-lg focus:ring-2 focus:ring-tech-cyan focus:border-transparent outline-none transition-all text-white placeholder-gray-500"
                       placeholder="회사명을 입력해주세요"
                     />
                   </div>
@@ -192,8 +221,10 @@ export const Contact: React.FC = () => {
                     <input
                       type="text"
                       name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-tech-bg border border-tech-dim rounded-lg focus:ring-2 focus:ring-tech-cyan focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
+                      className="w-full px-4 py-3 bg-tech-bg border border-tech-dim rounded-lg focus:ring-2 focus:ring-tech-cyan focus:border-transparent outline-none transition-all text-white placeholder-gray-500"
                       placeholder="담당자 성함을 입력해주세요"
                     />
                   </div>
@@ -202,8 +233,10 @@ export const Contact: React.FC = () => {
                     <input
                       type="email"
                       name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-tech-bg border border-tech-dim rounded-lg focus:ring-2 focus:ring-tech-cyan focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
+                      className="w-full px-4 py-3 bg-tech-bg border border-tech-dim rounded-lg focus:ring-2 focus:ring-tech-cyan focus:border-transparent outline-none transition-all text-white placeholder-gray-500"
                       placeholder="이메일 주소를 입력해주세요"
                     />
                   </div>
@@ -212,8 +245,10 @@ export const Contact: React.FC = () => {
                     <input
                       type="tel"
                       name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-tech-bg border border-tech-dim rounded-lg focus:ring-2 focus:ring-tech-cyan focus:border-transparent outline-none transition-all text-white placeholder-gray-600"
+                      className="w-full px-4 py-3 bg-tech-bg border border-tech-dim rounded-lg focus:ring-2 focus:ring-tech-cyan focus:border-transparent outline-none transition-all text-white placeholder-gray-500"
                       placeholder="연락처를 입력해주세요"
                     />
                   </div>
@@ -221,15 +256,26 @@ export const Contact: React.FC = () => {
                     <label className="block text-sm font-medium text-gray-400 mb-1 font-mono">문의내용</label>
                     <textarea
                       name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       rows={4}
                       required
-                      className="w-full px-4 py-3 bg-tech-bg border border-tech-dim rounded-lg focus:ring-2 focus:ring-tech-cyan focus:border-transparent outline-none transition-all resize-none text-white placeholder-gray-600"
+                      className="w-full px-4 py-3 bg-tech-bg border border-tech-dim rounded-lg focus:ring-2 focus:ring-tech-cyan focus:border-transparent outline-none transition-all resize-none text-white placeholder-gray-500"
                       placeholder="문의 내용을 입력해주세요"
                     ></textarea>
                   </div>
 
                   {error && (
-                    <p className="text-red-400 text-sm">{error}</p>
+                    <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-3">
+                      <p className="text-red-400 text-sm">{error}</p>
+                      <button
+                        type="button"
+                        onClick={handleEmailFallback}
+                        className="text-tech-cyan text-sm mt-2 hover:underline flex items-center gap-1"
+                      >
+                        <Send size={14} /> 이메일 앱으로 문의하기
+                      </button>
+                    </div>
                   )}
 
                   <button
@@ -243,9 +289,16 @@ export const Contact: React.FC = () => {
                         전송 중...
                       </>
                     ) : (
-                      '문의하기'
+                      <>
+                        <Send size={18} />
+                        문의하기
+                      </>
                     )}
                   </button>
+
+                  <p className="text-gray-500 text-xs text-center mt-4">
+                    * 전송이 안 될 경우 <a href="mailto:jjh@jjcreative.co.kr" className="text-tech-cyan hover:underline">jjh@jjcreative.co.kr</a>로 직접 문의해주세요.
+                  </p>
                 </form>
               )}
             </motion.div>
