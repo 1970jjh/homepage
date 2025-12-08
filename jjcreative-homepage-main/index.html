@@ -66,6 +66,15 @@
           cursor: none;
         }
 
+        /* Restore cursor for form inputs */
+        input, textarea, select, button, a {
+          cursor: auto !important;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"], input[type="password"], textarea {
+          cursor: text !important;
+        }
+
         .cursor-dot,
         .cursor-outline {
           position: fixed;
