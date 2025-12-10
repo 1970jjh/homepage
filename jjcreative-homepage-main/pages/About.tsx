@@ -32,19 +32,19 @@ export const About: React.FC = () => {
           </motion.div>
 
           {/* YouTube Videos - Horizontal Layout */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 w-full px-8 md:px-16 lg:px-24">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="aspect-video bg-tech-panel rounded-xl overflow-hidden border-2 border-white/20 hover:border-tech-cyan/50 transition-colors shadow-2xl"
+              className="aspect-video bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all shadow-2xl"
             >
               <iframe
                 src="https://www.youtube.com/embed/g7vOJc3t5_s"
                 title="JJ Creative 교육 영상 1"
                 className="w-full h-full"
                 frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               ></iframe>
             </motion.div>
@@ -52,14 +52,14 @@ export const About: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="aspect-video bg-tech-panel rounded-xl overflow-hidden border-2 border-white/20 hover:border-tech-cyan/50 transition-colors shadow-2xl"
+              className="aspect-video bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all shadow-2xl"
             >
               <iframe
                 src="https://www.youtube.com/embed/4XTPnf4B1SU"
                 title="JJ Creative 교육 영상 2"
                 className="w-full h-full"
                 frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               ></iframe>
             </motion.div>
