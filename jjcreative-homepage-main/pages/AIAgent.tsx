@@ -1,13 +1,14 @@
 
 import React, { useState } from 'react';
-import { Bot, Sparkles, Cpu, Zap, ArrowRight, Rocket, Target, TrendingUp, Lightbulb, Users, Brain, Map, BarChart3, UserCheck, MessageSquare, Star, Activity, Clock, Shield, Compass, TreePine, Timer, Scale, Route, Image, HelpCircle, Layers } from 'lucide-react';
+import { Bot, Sparkles, Cpu, Zap, ArrowRight, Rocket, Target, TrendingUp, Lightbulb, Users, Brain, Map, BarChart3, UserCheck, MessageSquare, Star, Activity, Clock, Shield, Compass, TreePine, Timer, Scale, Route, Image, HelpCircle, Layers, Smile } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // 카테고리 정의
-type AppCategory = 'all' | 'strategy' | 'leadership' | 'team' | 'learning' | 'development';
+type AppCategory = 'all' | 'ai-teambuilding' | 'strategy' | 'leadership' | 'team' | 'learning' | 'development';
 
 const categories: { id: AppCategory; label: string; icon: React.ElementType }[] = [
   { id: 'all', label: 'ALL', icon: Layers },
+  { id: 'ai-teambuilding', label: 'AI Teambuilding', icon: Users },
   { id: 'strategy', label: '전략/분석', icon: Target },
   { id: 'leadership', label: '리더십', icon: Compass },
   { id: 'team', label: '팀/조직', icon: Users },
@@ -15,10 +16,10 @@ const categories: { id: AppCategory; label: string; icon: React.ElementType }[] 
   { id: 'development', label: '역량개발', icon: Activity },
 ];
 
-// AI Agent Apps 데이터
+// AI Agent Apps 데이터 (categories는 배열로 여러 카테고리에 중복 가능)
 const aiApps = [
   // === Available Apps ===
-  // Strategy
+  // AI Teambuilding & Strategy
   {
     id: 1,
     name: 'STRATEGIC POSITIONING',
@@ -28,7 +29,7 @@ const aiApps = [
     iconClass: 'text-jjorange',
     bgClass: 'from-jjorange/20',
     status: 'available-auth',
-    category: 'strategy',
+    categories: ['strategy', 'ai-teambuilding'],
   },
   {
     id: 2,
@@ -39,7 +40,7 @@ const aiApps = [
     iconClass: 'text-tech-cyan',
     bgClass: 'from-tech-cyan/20',
     status: 'available-auth',
-    category: 'strategy',
+    categories: ['strategy', 'ai-teambuilding'],
   },
   {
     id: 3,
@@ -50,7 +51,7 @@ const aiApps = [
     iconClass: 'text-emerald-400',
     bgClass: 'from-emerald-400/20',
     status: 'available',
-    category: 'strategy',
+    categories: ['strategy', 'ai-teambuilding', 'learning'],
   },
   // Learning
   {
@@ -62,7 +63,7 @@ const aiApps = [
     iconClass: 'text-yellow-400',
     bgClass: 'from-yellow-400/20',
     status: 'available-auth',
-    category: 'learning',
+    categories: ['learning', 'team'],
   },
   {
     id: 5,
@@ -73,7 +74,7 @@ const aiApps = [
     iconClass: 'text-rose-400',
     bgClass: 'from-rose-400/20',
     status: 'available',
-    category: 'learning',
+    categories: ['learning'],
   },
   {
     id: 6,
@@ -84,9 +85,9 @@ const aiApps = [
     iconClass: 'text-sky-400',
     bgClass: 'from-sky-400/20',
     status: 'available',
-    category: 'learning',
+    categories: ['learning'],
   },
-  // Team
+  // Team & AI Teambuilding
   {
     id: 7,
     name: 'AI vs Human Team-building',
@@ -96,18 +97,18 @@ const aiApps = [
     iconClass: 'text-purple-400',
     bgClass: 'from-purple-400/20',
     status: 'available-auth',
-    category: 'team',
+    categories: ['team', 'ai-teambuilding'],
   },
   {
     id: 8,
-    name: '집단지성의 팀',
+    name: '집단지성의 팀 빌딩',
     description: '팀의 집단지성을 활용하여 문제를 해결하는 협업 기반 AI 도구입니다.',
     url: 'https://alpagoteam.vercel.app/',
     icon: Brain,
     iconClass: 'text-green-400',
     bgClass: 'from-green-400/20',
     status: 'available',
-    category: 'team',
+    categories: ['team', 'ai-teambuilding'],
   },
   {
     id: 9,
@@ -118,26 +119,37 @@ const aiApps = [
     iconClass: 'text-pink-400',
     bgClass: 'from-pink-400/20',
     status: 'available',
-    category: 'strategy',
+    categories: ['strategy'],
+  },
+  {
+    id: 10,
+    name: 'AI 캐리커쳐 만들기',
+    description: 'AI가 팀원들의 특징을 반영한 재미있는 캐리커쳐를 생성하여 팀빌딩 활동에 활용합니다.',
+    url: 'https://aistudio.google.com/prompts/1lSxJevYd',
+    icon: Smile,
+    iconClass: 'text-amber-400',
+    bgClass: 'from-amber-400/20',
+    status: 'available',
+    categories: ['team', 'ai-teambuilding'],
   },
   // === Upload Soon Apps ===
   // Team/Org
-  { id: 10, name: 'Quinn 조직문화 유형 진단', icon: BarChart3, status: 'upload-soon', category: 'team' },
-  { id: 11, name: '팀빌딩 크리에이터', icon: Users, status: 'upload-soon', category: 'team' },
+  { id: 11, name: 'Quinn 조직문화 유형 진단', icon: BarChart3, status: 'upload-soon', categories: ['team'] },
+  { id: 12, name: '팀빌딩 크리에이터', icon: Users, status: 'upload-soon', categories: ['team', 'ai-teambuilding'] },
   // Leadership
-  { id: 12, name: '상황대응 리더십 진단 및 시뮬레이션', icon: Compass, status: 'upload-soon', category: 'leadership' },
-  { id: 13, name: 'One on One 리더십 시뮬레이션', icon: MessageSquare, status: 'upload-soon', category: 'leadership' },
-  { id: 14, name: '켈리 팔로워십 진단 및 시뮬레이션', icon: UserCheck, status: 'upload-soon', category: 'leadership' },
-  { id: 15, name: '셀프 리더십 진단 및 시뮬레이션', icon: Star, status: 'upload-soon', category: 'leadership' },
+  { id: 13, name: '상황대응 리더십 진단 및 시뮬레이션', icon: Compass, status: 'upload-soon', categories: ['leadership'] },
+  { id: 14, name: 'One on One 리더십 시뮬레이션', icon: MessageSquare, status: 'upload-soon', categories: ['leadership'] },
+  { id: 15, name: '켈리 팔로워십 진단 및 시뮬레이션', icon: UserCheck, status: 'upload-soon', categories: ['leadership', 'team'] },
+  { id: 16, name: '셀프 리더십 진단 및 시뮬레이션', icon: Star, status: 'upload-soon', categories: ['leadership', 'development'] },
   // Development
-  { id: 16, name: '강점 진단 및 역량개발', icon: Activity, status: 'upload-soon', category: 'development' },
-  { id: 17, name: '저성과자 역량 진단', icon: Target, status: 'upload-soon', category: 'development' },
-  { id: 18, name: '시간관리 스킬 업', icon: Timer, status: 'upload-soon', category: 'development' },
-  { id: 19, name: '갈등관리 스킬 업', icon: Scale, status: 'upload-soon', category: 'development' },
-  { id: 20, name: '은퇴 준비 로드맵', icon: Route, status: 'upload-soon', category: 'development' },
+  { id: 17, name: '강점 진단 및 역량개발', icon: Activity, status: 'upload-soon', categories: ['development'] },
+  { id: 18, name: '저성과자 역량 진단', icon: Target, status: 'upload-soon', categories: ['development'] },
+  { id: 19, name: '시간관리 스킬 업', icon: Timer, status: 'upload-soon', categories: ['development'] },
+  { id: 20, name: '갈등관리 스킬 업', icon: Scale, status: 'upload-soon', categories: ['development', 'team'] },
+  { id: 21, name: '은퇴 준비 로드맵', icon: Route, status: 'upload-soon', categories: ['development'] },
   // Strategy/Learning
-  { id: 21, name: '경영전략 분석', icon: TrendingUp, status: 'upload-soon', category: 'strategy' },
-  { id: 22, name: '로직트리 문제해결 마스터', icon: TreePine, status: 'upload-soon', category: 'learning' },
+  { id: 22, name: '경영전략 분석', icon: TrendingUp, status: 'upload-soon', categories: ['strategy'] },
+  { id: 23, name: '로직트리 문제해결 마스터', icon: TreePine, status: 'upload-soon', categories: ['learning', 'strategy'] },
 ];
 
 export const AIAgent: React.FC = () => {
@@ -145,7 +157,7 @@ export const AIAgent: React.FC = () => {
 
   const filteredApps = activeCategory === 'all'
     ? aiApps
-    : aiApps.filter(app => app.category === activeCategory);
+    : aiApps.filter(app => app.categories.includes(activeCategory));
 
   return (
     <div className="w-full bg-tech-bg">
