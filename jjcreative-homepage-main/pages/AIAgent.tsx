@@ -167,6 +167,68 @@ export const AIAgent: React.FC = () => {
         </div>
       </section>
 
+      {/* YouTube Demo Section */}
+      <section className="py-20 bg-tech-bg relative">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" style={{ backgroundSize: '40px 40px' }}></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-12">
+            <span className="font-mono text-tech-cyan text-sm tracking-widest mb-4 block">// AI_APP_DEMO</span>
+            <h2 className="text-3xl font-bold text-white mb-4">AI Agent App 데모 영상</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              JJ Creative가 개발한 AI 에이전트 앱의 실제 작동 모습을 확인해보세요.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Left Video - 학습퀴즈 생성 */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
+            >
+              <div className="aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/Ugne4HpyZko"
+                  title="학습퀴즈 생성 및 진행 AI APP"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-white mb-2">학습퀴즈 생성 및 진행 AI APP</h3>
+                <p className="text-gray-400 text-sm">AI가 학습 콘텐츠를 분석하여 자동으로 퀴즈를 생성하고, 학습자의 이해도를 실시간으로 평가합니다.</p>
+              </div>
+            </motion.div>
+            {/* Right Video - 상황대응 리더십 */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
+            >
+              <div className="aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/H9_zlTqvaBY"
+                  title="상황대응 리더십 스타일 진단 및 시뮬레이션 AI APP"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-white mb-2">상황대응 리더십 스타일 진단 및 시뮬레이션 AI APP</h3>
+                <p className="text-gray-400 text-sm">AI 기반 리더십 스타일 진단과 다양한 상황별 시뮬레이션으로 리더십 역량을 강화합니다.</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* AI Agent Apps Showcase */}
       <section className="py-20 bg-tech-bg relative">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" style={{ backgroundSize: '40px 40px' }}></div>
