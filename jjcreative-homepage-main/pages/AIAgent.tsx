@@ -1,11 +1,24 @@
 
-import React from 'react';
-import { Bot, Sparkles, Cpu, Zap, ArrowRight, Rocket, Target, TrendingUp, Lightbulb, Users, Brain, Map, BarChart3, UserCheck, MessageSquare, Star, Activity, Clock, Shield, Compass, TreePine, Timer, Scale, Route } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { Bot, Sparkles, Cpu, Zap, ArrowRight, Rocket, Target, TrendingUp, Lightbulb, Users, Brain, Map, BarChart3, UserCheck, MessageSquare, Star, Activity, Clock, Shield, Compass, TreePine, Timer, Scale, Route, Image, HelpCircle, Layers } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+// 카테고리 정의
+type AppCategory = 'all' | 'strategy' | 'leadership' | 'team' | 'learning' | 'development';
+
+const categories: { id: AppCategory; label: string; icon: React.ElementType }[] = [
+  { id: 'all', label: 'ALL', icon: Layers },
+  { id: 'strategy', label: '전략/분석', icon: Target },
+  { id: 'leadership', label: '리더십', icon: Compass },
+  { id: 'team', label: '팀/조직', icon: Users },
+  { id: 'learning', label: '학습/교육', icon: Lightbulb },
+  { id: 'development', label: '역량개발', icon: Activity },
+];
 
 // AI Agent Apps 데이터
 const aiApps = [
-  // Available with Auth Required (#1-4)
+  // === Available Apps ===
+  // Strategy
   {
     id: 1,
     name: 'STRATEGIC POSITIONING',
@@ -15,6 +28,7 @@ const aiApps = [
     iconClass: 'text-jjorange',
     bgClass: 'from-jjorange/20',
     status: 'available-auth',
+    category: 'strategy',
   },
   {
     id: 2,
@@ -25,9 +39,22 @@ const aiApps = [
     iconClass: 'text-tech-cyan',
     bgClass: 'from-tech-cyan/20',
     status: 'available-auth',
+    category: 'strategy',
   },
   {
     id: 3,
+    name: 'SWOT 전략분석 AI Game',
+    description: 'SWOT 분석을 게임화하여 전략적 사고력을 향상시키는 AI 기반 학습 도구입니다.',
+    url: 'https://swot-225893881303.us-west1.run.app',
+    icon: BarChart3,
+    iconClass: 'text-emerald-400',
+    bgClass: 'from-emerald-400/20',
+    status: 'available',
+    category: 'strategy',
+  },
+  // Learning
+  {
+    id: 4,
     name: '창의적 아이디어 실험실',
     description: 'AI와 함께하는 창의적 아이디어 발상 및 브레인스토밍 실험실입니다.',
     url: 'https://script.google.com/macros/s/AKfycbxMIaFrZxnhdwY2o9yH-gfIqIfQeucxYHH0nz0I9v1BzDDZRmh_QT-XQVz_Qnf3Bp_4YA/exec',
@@ -35,9 +62,33 @@ const aiApps = [
     iconClass: 'text-yellow-400',
     bgClass: 'from-yellow-400/20',
     status: 'available-auth',
+    category: 'learning',
   },
   {
-    id: 4,
+    id: 5,
+    name: 'Learning Infographic AI Agent',
+    description: 'AI가 학습 콘텐츠를 분석하여 시각적인 인포그래픽을 자동 생성하는 도구입니다.',
+    url: 'https://jjh-infographic-ai.vercel.app',
+    icon: Image,
+    iconClass: 'text-rose-400',
+    bgClass: 'from-rose-400/20',
+    status: 'available',
+    category: 'learning',
+  },
+  {
+    id: 6,
+    name: 'Learning Quiz AI Agent',
+    description: 'AI가 학습 콘텐츠를 분석하여 자동으로 퀴즈를 생성하고 학습 효과를 측정합니다.',
+    url: 'https://learning-quiz-ai.vercel.app',
+    icon: HelpCircle,
+    iconClass: 'text-sky-400',
+    bgClass: 'from-sky-400/20',
+    status: 'available',
+    category: 'learning',
+  },
+  // Team
+  {
+    id: 7,
     name: 'AI vs Human Team-building',
     description: 'AI와 인간이 협력하여 팀빌딩 역량을 강화하는 혁신적인 교육 도구입니다.',
     url: 'https://ai-vs-human-jjc.vercel.app/',
@@ -45,10 +96,10 @@ const aiApps = [
     iconClass: 'text-purple-400',
     bgClass: 'from-purple-400/20',
     status: 'available-auth',
+    category: 'team',
   },
-  // Available without Auth (#5-6)
   {
-    id: 5,
+    id: 8,
     name: '집단지성의 팀',
     description: '팀의 집단지성을 활용하여 문제를 해결하는 협업 기반 AI 도구입니다.',
     url: 'https://alpagoteam.vercel.app/',
@@ -56,9 +107,10 @@ const aiApps = [
     iconClass: 'text-green-400',
     bgClass: 'from-green-400/20',
     status: 'available',
+    category: 'team',
   },
   {
-    id: 6,
+    id: 9,
     name: '고객여정지도',
     description: '고객 경험을 시각화하고 터치포인트를 분석하는 AI 기반 고객여정 매핑 도구입니다.',
     url: 'https://gemini.google.com/share/dea707ec9465',
@@ -66,30 +118,35 @@ const aiApps = [
     iconClass: 'text-pink-400',
     bgClass: 'from-pink-400/20',
     status: 'available',
+    category: 'strategy',
   },
-  // Upload Soon Apps (#7-19)
-  { id: 7, name: 'Quinn 조직문화 유형 진단', icon: BarChart3, status: 'upload-soon' },
-  { id: 8, name: '상황대응 리더십 진단 및 시뮬레이션', icon: Compass, status: 'upload-soon' },
-  { id: 9, name: 'One on One 리더십 시뮬레이션', icon: MessageSquare, status: 'upload-soon' },
-  { id: 10, name: '켈리 팔로워십 진단 및 시뮬레이션', icon: UserCheck, status: 'upload-soon' },
-  { id: 11, name: '셀프 리더십 진단 및 시뮬레이션', icon: Star, status: 'upload-soon' },
-  { id: 12, name: '강점 진단 및 역량개발', icon: Activity, status: 'upload-soon' },
-  { id: 13, name: '저성과자 역량 진단', icon: Target, status: 'upload-soon' },
-  { id: 14, name: '팀빌딩 크리에이터', icon: Users, status: 'upload-soon' },
-  { id: 15, name: '경영전략 분석', icon: TrendingUp, status: 'upload-soon' },
-  { id: 16, name: '로직트리 문제해결 마스터', icon: TreePine, status: 'upload-soon' },
-  { id: 17, name: '시간관리 스킬 업', icon: Timer, status: 'upload-soon' },
-  { id: 18, name: '갈등관리 스킬 업', icon: Scale, status: 'upload-soon' },
-  { id: 19, name: '은퇴 준비 로드맵', icon: Route, status: 'upload-soon' },
-  // Coming Soon Apps (#20-24)
-  { id: 20, name: 'AI App #20', status: 'coming-soon' },
-  { id: 21, name: 'AI App #21', status: 'coming-soon' },
-  { id: 22, name: 'AI App #22', status: 'coming-soon' },
-  { id: 23, name: 'AI App #23', status: 'coming-soon' },
-  { id: 24, name: 'AI App #24', status: 'coming-soon' },
+  // === Upload Soon Apps ===
+  // Team/Org
+  { id: 10, name: 'Quinn 조직문화 유형 진단', icon: BarChart3, status: 'upload-soon', category: 'team' },
+  { id: 11, name: '팀빌딩 크리에이터', icon: Users, status: 'upload-soon', category: 'team' },
+  // Leadership
+  { id: 12, name: '상황대응 리더십 진단 및 시뮬레이션', icon: Compass, status: 'upload-soon', category: 'leadership' },
+  { id: 13, name: 'One on One 리더십 시뮬레이션', icon: MessageSquare, status: 'upload-soon', category: 'leadership' },
+  { id: 14, name: '켈리 팔로워십 진단 및 시뮬레이션', icon: UserCheck, status: 'upload-soon', category: 'leadership' },
+  { id: 15, name: '셀프 리더십 진단 및 시뮬레이션', icon: Star, status: 'upload-soon', category: 'leadership' },
+  // Development
+  { id: 16, name: '강점 진단 및 역량개발', icon: Activity, status: 'upload-soon', category: 'development' },
+  { id: 17, name: '저성과자 역량 진단', icon: Target, status: 'upload-soon', category: 'development' },
+  { id: 18, name: '시간관리 스킬 업', icon: Timer, status: 'upload-soon', category: 'development' },
+  { id: 19, name: '갈등관리 스킬 업', icon: Scale, status: 'upload-soon', category: 'development' },
+  { id: 20, name: '은퇴 준비 로드맵', icon: Route, status: 'upload-soon', category: 'development' },
+  // Strategy/Learning
+  { id: 21, name: '경영전략 분석', icon: TrendingUp, status: 'upload-soon', category: 'strategy' },
+  { id: 22, name: '로직트리 문제해결 마스터', icon: TreePine, status: 'upload-soon', category: 'learning' },
 ];
 
 export const AIAgent: React.FC = () => {
+  const [activeCategory, setActiveCategory] = useState<AppCategory>('all');
+
+  const filteredApps = activeCategory === 'all'
+    ? aiApps
+    : aiApps.filter(app => app.category === activeCategory);
+
   return (
     <div className="w-full bg-tech-bg">
       {/* Header */}
@@ -240,24 +297,44 @@ export const AIAgent: React.FC = () => {
               JJ Creative가 직접 개발한 AI 에이전트 앱들을 소개합니다.
             </p>
             {/* Notice Banner */}
-            <div className="bg-gradient-to-r from-jjorange/20 to-purple-500/20 border border-jjorange/40 rounded-xl p-4 max-w-3xl mx-auto">
+            <div className="bg-gradient-to-r from-jjorange/20 to-purple-500/20 border border-jjorange/40 rounded-xl p-4 max-w-3xl mx-auto mb-8">
               <p className="text-sm md:text-base text-white leading-relaxed">
                 <span className="text-jjorange font-bold">※</span> 실시간 AI API를 사용하는 AI agent app 입니다.
                 실제 사용을 위해서는 <strong className="text-jjorange">JJ Creative 관리자 인증</strong>이 필요합니다.
                 <a href="#/contact" className="text-tech-cyan hover:underline font-bold ml-1">문의하기</a>를 통해 관리자 인증을 받고 이용하세요.
               </p>
             </div>
+
+            {/* Category Tabs */}
+            <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+              {categories.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveCategory(cat.id)}
+                  className={`flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 rounded-xl font-bold text-sm md:text-base transition-all ${
+                    activeCategory === cat.id
+                      ? 'bg-tech-cyan text-tech-bg'
+                      : 'bg-tech-panel border border-tech-dim text-gray-400 hover:border-tech-cyan hover:text-white'
+                  }`}
+                >
+                  <cat.icon size={18} />
+                  {cat.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* AI Apps Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {aiApps.map((app, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+            <AnimatePresence mode="popLayout">
+            {filteredApps.map((app, idx) => (
               <motion.div
                 key={app.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.05 }}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3, delay: idx * 0.03 }}
                 className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all group tech-border"
               >
                 {(app.status === 'available-auth' || app.status === 'available') && app.icon && app.url ? (
@@ -343,6 +420,7 @@ export const AIAgent: React.FC = () => {
                 )}
               </motion.div>
             ))}
+            </AnimatePresence>
           </div>
 
           {/* Coming Soon Message */}
