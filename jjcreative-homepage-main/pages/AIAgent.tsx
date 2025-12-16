@@ -58,11 +58,10 @@ const aiApps = [
     id: 4,
     name: '창의적 아이디어 실험실',
     description: 'AI와 함께하는 창의적 아이디어 발상 및 브레인스토밍 실험실입니다.',
-    url: 'https://script.google.com/macros/s/AKfycbxMIaFrZxnhdwY2o9yH-gfIqIfQeucxYHH0nz0I9v1BzDDZRmh_QT-XQVz_Qnf3Bp_4YA/exec',
     icon: Lightbulb,
     iconClass: 'text-yellow-400',
     bgClass: 'from-yellow-400/20',
-    status: 'available-auth',
+    status: 'upload-soon',
     categories: ['learning', 'team'],
   },
   {
@@ -139,7 +138,7 @@ const aiApps = [
   // Leadership
   { id: 13, name: '상황대응 리더십 진단 및 시뮬레이션', icon: Compass, status: 'upload-soon', categories: ['leadership'] },
   { id: 14, name: 'One on One 리더십 시뮬레이션', icon: MessageSquare, status: 'upload-soon', categories: ['leadership'] },
-  { id: 15, name: '켈리 팔로워십 진단 및 시뮬레이션', icon: UserCheck, status: 'upload-soon', categories: ['leadership', 'team'] },
+  { id: 15, name: '켈리 팔로워십 진단 및 시뮬레이션', icon: UserCheck, iconClass: 'text-indigo-400', bgClass: 'from-indigo-400/20', url: 'https://youtube.com/shorts/HYK5PZHMZGM', status: 'available', categories: ['leadership', 'team'] },
   { id: 16, name: '셀프 리더십 진단 및 시뮬레이션', icon: Star, status: 'upload-soon', categories: ['leadership', 'development'] },
   // Development
   { id: 17, name: '강점 진단 및 역량개발', icon: Activity, status: 'upload-soon', categories: ['development'] },
@@ -248,7 +247,7 @@ export const AIAgent: React.FC = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Left Video - 학습퀴즈 생성 */}
+            {/* Video 1 - 학습퀴즈 생성 */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -271,7 +270,7 @@ export const AIAgent: React.FC = () => {
                 <p className="text-gray-400 text-sm">AI가 학습 콘텐츠를 분석하여 자동으로 퀴즈를 생성하고, 학습자의 이해도를 실시간으로 평가합니다.</p>
               </div>
             </motion.div>
-            {/* Right Video - 상황대응 리더십 */}
+            {/* Video 2 - 상황대응 리더십 */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -292,6 +291,52 @@ export const AIAgent: React.FC = () => {
               <div className="p-6">
                 <h3 className="text-lg font-bold text-white mb-2">상황대응 리더십 스타일 진단 및 시뮬레이션 AI APP</h3>
                 <p className="text-gray-400 text-sm">AI 기반 리더십 스타일 진단과 다양한 상황별 시뮬레이션으로 리더십 역량을 강화합니다.</p>
+              </div>
+            </motion.div>
+            {/* Video 3 - AI 에이전트 소개 */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
+            >
+              <div className="aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/JJt_KBWNabs"
+                  title="AI Agent App 소개"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-white mb-2">AI Agent App 소개</h3>
+                <p className="text-gray-400 text-sm">JJ Creative가 개발한 AI 에이전트 앱의 특징과 활용 방법을 소개합니다.</p>
+              </div>
+            </motion.div>
+            {/* Video 4 - AI 에이전트 Shorts */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
+            >
+              <div className="aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/HYK5PZHMZGM"
+                  title="AI Agent App 하이라이트"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-white mb-2">AI Agent App 하이라이트</h3>
+                <p className="text-gray-400 text-sm">AI 에이전트 앱의 핵심 기능을 짧은 영상으로 확인해보세요.</p>
               </div>
             </motion.div>
           </div>
