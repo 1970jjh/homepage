@@ -138,7 +138,7 @@ const aiApps = [
   // Leadership
   { id: 13, name: '상황대응 리더십 진단 및 시뮬레이션', icon: Compass, status: 'upload-soon', categories: ['leadership'] },
   { id: 14, name: 'One on One 리더십 시뮬레이션', icon: MessageSquare, status: 'upload-soon', categories: ['leadership'] },
-  { id: 15, name: '켈리 팔로워십 진단 및 시뮬레이션', icon: UserCheck, status: 'upload-soon', categories: ['leadership', 'team'] },
+  { id: 15, name: '켈리 팔로워십 진단 및 시뮬레이션', icon: UserCheck, iconClass: 'text-indigo-400', bgClass: 'from-indigo-400/20', url: 'https://youtube.com/shorts/HYK5PZHMZGM', status: 'available', categories: ['leadership', 'team'] },
   { id: 16, name: '셀프 리더십 진단 및 시뮬레이션', icon: Star, status: 'upload-soon', categories: ['leadership', 'development'] },
   // Development
   { id: 17, name: '강점 진단 및 역량개발', icon: Activity, status: 'upload-soon', categories: ['development'] },
