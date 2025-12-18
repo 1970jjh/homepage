@@ -256,7 +256,7 @@ export const AIChatbot: React.FC = () => {
 
       {/* Chat Window - Right Bottom, 30% taller */}
       {isOpen && (
-        <div className="fixed right-6 bottom-6 z-50 w-[380px] h-[680px] bg-tech-panel rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-[scaleIn_0.3s_ease-out] border border-tech-dim">
+        <div className="fixed inset-3 sm:inset-auto sm:right-6 sm:bottom-6 sm:w-[380px] sm:h-[680px] z-50 bg-tech-panel rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-[scaleIn_0.3s_ease-out] border border-tech-dim">
           <style>{`
             @keyframes scaleIn {
               from { transform: scale(0.8); opacity: 0; }
