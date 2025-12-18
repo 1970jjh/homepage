@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Bot, Sparkles, Cpu, Zap, ArrowRight, Rocket, Target, TrendingUp, Lightbulb, Users, Brain, Map, BarChart3, UserCheck, MessageSquare, Star, Activity, Clock, Shield, Compass, TreePine, Timer, Scale, Route, Image, HelpCircle, Layers, Smile } from 'lucide-react';
+import { Bot, Sparkles, Cpu, Zap, ArrowRight, Rocket, Target, TrendingUp, Lightbulb, Users, Brain, Map, BarChart3, UserCheck, MessageSquare, Star, Activity, Clock, Shield, Compass, TreePine, Timer, Scale, Route, Image, HelpCircle, Layers, Smile, Factory, KeyRound } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // 카테고리 정의
@@ -149,6 +149,9 @@ const aiApps = [
   // Strategy/Learning
   { id: 22, name: '경영전략 분석', icon: TrendingUp, status: 'upload-soon', categories: ['strategy'] },
   { id: 23, name: '로직트리 문제해결 마스터', icon: TreePine, status: 'upload-soon', categories: ['learning', 'strategy'] },
+  // 시뮬레이션/팀빌딩 게임
+  { id: 24, name: '제3공장 문제해결 시뮬레이션', icon: Factory, iconClass: 'text-orange-400', bgClass: 'from-orange-400/20', status: 'upload-soon', categories: ['strategy', 'ai-teambuilding', 'learning'] },
+  { id: 25, name: '미션 임파서블! 방탈출', icon: KeyRound, iconClass: 'text-red-400', bgClass: 'from-red-400/20', status: 'upload-soon', categories: ['team', 'ai-teambuilding'] },
 ];
 
 export const AIAgent: React.FC = () => {
