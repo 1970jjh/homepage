@@ -394,83 +394,80 @@ export const AIAgent: React.FC = () => {
                 transition={{ duration: 0.3, delay: idx * 0.03 }}
                 className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all group tech-border"
               >
-                {(app.status === 'available-auth' || app.status === 'available') && app.icon && app.url ? (
+                {(app.status === 'available-auth' || app.status === 'available') && app.icon ? (
                   // Available 앱 (인증 필요 또는 인증 불필요)
-                  <a href={app.url} target="_blank" rel="noopener noreferrer" className="block">
-                    <div className="h-48 bg-gradient-to-br from-tech-bg to-tech-panel flex items-center justify-center relative overflow-hidden">
+                  <>
+                    <div className="h-28 bg-gradient-to-br from-tech-bg to-tech-panel flex items-center justify-center relative overflow-hidden">
                       <div className={`absolute inset-0 bg-gradient-to-br ${app.bgClass} to-tech-cyan/10`}></div>
                       <div className="text-center relative z-10">
-                        <app.icon className={`w-16 h-16 ${app.iconClass} mx-auto mb-2`} />
+                        <app.icon className={`w-10 h-10 ${app.iconClass} mx-auto mb-1`} />
                         {app.status === 'available-auth' ? (
-                          <span className="text-sm text-jjorange font-bold">관리자 인증 요망</span>
+                          <span className="text-xs text-jjorange font-bold">관리자 인증 요망</span>
                         ) : (
-                          <span className="text-sm text-green-400 font-bold">{app.name}</span>
+                          <span className="text-xs text-green-400 font-bold">{app.name}</span>
                         )}
                       </div>
-                      <div className="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full font-mono">
+                      <div className="absolute top-2 right-2 bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full font-mono">
                         Available
                       </div>
                     </div>
-                    <div className="p-6">
-                      <h3 className="text-lg font-bold text-white mb-2 group-hover:text-tech-cyan transition-colors">{app.name}</h3>
-                      <p className="text-gray-400 text-sm mb-4 line-clamp-2">{app.description}</p>
-                      <div className="flex items-center justify-between pt-4 border-t border-tech-dim">
-                        <div className="flex gap-2">
-                          <span className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full font-mono">AI</span>
-                          <span className="px-2 py-1 bg-tech-cyan/20 text-tech-cyan text-xs rounded-full font-mono">Education</span>
+                    <div className="p-4">
+                      <h3 className="text-sm font-bold text-white mb-1">{app.name}</h3>
+                      <p className="text-gray-400 text-xs mb-3 line-clamp-2">{app.description}</p>
+                      <div className="flex items-center justify-between pt-3 border-t border-tech-dim">
+                        <div className="flex gap-1">
+                          <span className="px-1.5 py-0.5 bg-purple-500/20 text-purple-300 text-[10px] rounded-full font-mono">AI</span>
+                          <span className="px-1.5 py-0.5 bg-tech-cyan/20 text-tech-cyan text-[10px] rounded-full font-mono">Education</span>
                         </div>
-                        <ArrowRight className="w-5 h-5 text-gray-500 group-hover:text-tech-cyan transition-colors" />
                       </div>
                     </div>
-                  </a>
+                  </>
                 ) : app.status === 'upload-soon' ? (
                   // Upload Soon 앱
                   <>
-                    <div className="h-48 bg-gradient-to-br from-tech-bg to-tech-panel flex items-center justify-center relative overflow-hidden">
+                    <div className="h-28 bg-gradient-to-br from-tech-bg to-tech-panel flex items-center justify-center relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-tech-cyan/10"></div>
-                      <div className="text-center px-4">
-                        {app.icon ? <app.icon className="w-16 h-16 text-blue-400 mx-auto mb-2" /> : <Bot className="w-16 h-16 text-tech-dim mx-auto mb-2" />}
-                        <span className="text-sm text-blue-300 font-bold line-clamp-2">{app.name}</span>
+                      <div className="text-center px-2">
+                        {app.icon ? <app.icon className="w-10 h-10 text-blue-400 mx-auto mb-1" /> : <Bot className="w-10 h-10 text-tech-dim mx-auto mb-1" />}
+                        <span className="text-xs text-blue-300 font-bold line-clamp-2">{app.name}</span>
                       </div>
-                      <div className="absolute top-4 right-4 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full font-mono">
+                      <div className="absolute top-2 right-2 bg-blue-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full font-mono">
                         Upload Soon
                       </div>
                     </div>
-                    <div className="p-6">
-                      <h3 className="text-lg font-bold text-white mb-2">{app.name}</h3>
-                      <p className="text-gray-500 text-sm mb-4">곧 업로드 예정입니다.</p>
-                      <div className="flex items-center justify-between pt-4 border-t border-tech-dim">
-                        <div className="flex gap-2">
-                          <span className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full font-mono">AI</span>
-                          <span className="px-2 py-1 bg-tech-cyan/20 text-tech-cyan text-xs rounded-full font-mono">Education</span>
+                    <div className="p-4">
+                      <h3 className="text-sm font-bold text-white mb-1">{app.name}</h3>
+                      <p className="text-gray-500 text-xs mb-3">곧 업로드 예정입니다.</p>
+                      <div className="flex items-center justify-between pt-3 border-t border-tech-dim">
+                        <div className="flex gap-1">
+                          <span className="px-1.5 py-0.5 bg-purple-500/20 text-purple-300 text-[10px] rounded-full font-mono">AI</span>
+                          <span className="px-1.5 py-0.5 bg-tech-cyan/20 text-tech-cyan text-[10px] rounded-full font-mono">Education</span>
                         </div>
-                        <ArrowRight className="w-5 h-5 text-gray-500" />
                       </div>
                     </div>
                   </>
                 ) : (
                   // Coming Soon 앱
                   <>
-                    <div className="h-48 bg-gradient-to-br from-tech-bg to-tech-panel flex items-center justify-center relative overflow-hidden">
+                    <div className="h-28 bg-gradient-to-br from-tech-bg to-tech-panel flex items-center justify-center relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-tech-cyan/10"></div>
                       <div className="text-center">
-                        <Bot className="w-16 h-16 text-tech-dim mx-auto mb-2" />
-                        <span className="text-sm text-gray-500 font-medium">Coming Soon</span>
+                        <Bot className="w-10 h-10 text-tech-dim mx-auto mb-1" />
+                        <span className="text-xs text-gray-500 font-medium">Coming Soon</span>
                       </div>
-                      <div className="absolute top-4 right-4 bg-jjorange text-white text-xs font-bold px-3 py-1 rounded-full font-mono">
+                      <div className="absolute top-2 right-2 bg-jjorange text-white text-[10px] font-bold px-2 py-0.5 rounded-full font-mono">
                         Coming Soon
                       </div>
                     </div>
-                    <div className="p-6">
-                      <div className="h-6 bg-tech-dim rounded w-3/4 mb-3"></div>
-                      <div className="h-4 bg-tech-bg rounded w-full mb-2"></div>
-                      <div className="h-4 bg-tech-bg rounded w-5/6 mb-4"></div>
-                      <div className="flex items-center justify-between pt-4 border-t border-tech-dim">
-                        <div className="flex gap-2">
-                          <span className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full font-mono">AI</span>
-                          <span className="px-2 py-1 bg-tech-cyan/20 text-tech-cyan text-xs rounded-full font-mono">Education</span>
+                    <div className="p-4">
+                      <div className="h-4 bg-tech-dim rounded w-3/4 mb-2"></div>
+                      <div className="h-3 bg-tech-bg rounded w-full mb-1"></div>
+                      <div className="h-3 bg-tech-bg rounded w-5/6 mb-3"></div>
+                      <div className="flex items-center justify-between pt-3 border-t border-tech-dim">
+                        <div className="flex gap-1">
+                          <span className="px-1.5 py-0.5 bg-purple-500/20 text-purple-300 text-[10px] rounded-full font-mono">AI</span>
+                          <span className="px-1.5 py-0.5 bg-tech-cyan/20 text-tech-cyan text-[10px] rounded-full font-mono">Education</span>
                         </div>
-                        <ArrowRight className="w-5 h-5 text-gray-500" />
                       </div>
                     </div>
                   </>
