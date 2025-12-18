@@ -131,27 +131,27 @@ const aiApps = [
     status: 'available',
     categories: ['team', 'ai-teambuilding'],
   },
-  // === Upload Soon Apps ===
+  // === More Apps ===
   // Team/Org
-  { id: 11, name: 'Quinn 조직문화 유형 진단', icon: BarChart3, status: 'available', categories: ['team'] },
-  { id: 12, name: '팀빌딩 크리에이터', icon: Users, status: 'available', categories: ['team', 'ai-teambuilding'] },
+  { id: 11, name: 'Quinn 조직문화 유형 진단', description: 'Quinn 모델 기반으로 조직문화 유형을 진단하고 개선 방향을 제시하는 AI 도구입니다.', icon: BarChart3, status: 'available', categories: ['team'] },
+  { id: 12, name: '팀빌딩 크리에이터', description: '팀 특성에 맞는 맞춤형 팀빌딩 활동을 AI가 자동으로 설계해주는 도구입니다.', icon: Users, status: 'available', categories: ['team', 'ai-teambuilding'] },
   // Leadership
-  { id: 13, name: '상황대응 리더십 진단 및 시뮬레이션', icon: Compass, status: 'available', categories: ['leadership'] },
-  { id: 14, name: 'One on One 리더십 시뮬레이션', icon: MessageSquare, status: 'available', categories: ['leadership'] },
-  { id: 15, name: '켈리 팔로워십 진단 및 시뮬레이션', icon: UserCheck, iconClass: 'text-indigo-400', bgClass: 'from-indigo-400/20', url: 'https://youtube.com/shorts/HYK5PZHMZGM', status: 'available', categories: ['leadership', 'team'] },
-  { id: 16, name: '셀프 리더십 진단 및 시뮬레이션', icon: Star, status: 'available', categories: ['leadership', 'development'] },
+  { id: 13, name: '상황대응 리더십 진단 및 시뮬레이션', description: '상황대응 리더십 스타일을 진단하고 다양한 시나리오로 리더십 역량을 훈련합니다.', icon: Compass, status: 'available', categories: ['leadership'] },
+  { id: 14, name: 'One on One 리더십 시뮬레이션', description: '1:1 면담 상황을 시뮬레이션하여 효과적인 코칭과 피드백 스킬을 향상시킵니다.', icon: MessageSquare, status: 'available', categories: ['leadership'] },
+  { id: 15, name: '켈리 팔로워십 진단 및 시뮬레이션', description: '켈리의 팔로워십 모델을 기반으로 팔로워 유형을 진단하고 역량을 개발합니다.', icon: UserCheck, iconClass: 'text-indigo-400', bgClass: 'from-indigo-400/20', url: 'https://youtube.com/shorts/HYK5PZHMZGM', status: 'available', categories: ['leadership', 'team'] },
+  { id: 16, name: '셀프 리더십 진단 및 시뮬레이션', description: '자기 주도적 리더십 역량을 진단하고 셀프 리더십 스킬을 개발하는 AI 도구입니다.', icon: Star, status: 'available', categories: ['leadership', 'development'] },
   // Development
-  { id: 17, name: '강점 진단 및 역량개발', icon: Activity, status: 'available', categories: ['development'] },
-  { id: 18, name: '저성과자 역량 진단', icon: Target, status: 'available', categories: ['development'] },
-  { id: 19, name: '시간관리 스킬 업', icon: Timer, status: 'available', categories: ['development'] },
-  { id: 20, name: '갈등관리 스킬 업', icon: Scale, status: 'available', categories: ['development', 'team'] },
-  { id: 21, name: '은퇴 준비 로드맵', icon: Route, status: 'available', categories: ['development'] },
+  { id: 17, name: '강점 진단 및 역량개발', description: '개인의 강점을 AI로 진단하고 강점 기반 역량개발 전략을 수립합니다.', icon: Activity, status: 'available', categories: ['development'] },
+  { id: 18, name: '저성과자 역량 진단', description: '성과 부진 원인을 다각도로 분석하고 맞춤형 역량 향상 방안을 제시합니다.', icon: Target, status: 'available', categories: ['development'] },
+  { id: 19, name: '시간관리 스킬 업', description: '업무 패턴을 분석하여 효율적인 시간관리 전략과 실천 방법을 제안합니다.', icon: Timer, status: 'available', categories: ['development'] },
+  { id: 20, name: '갈등관리 스킬 업', description: '갈등 상황을 시뮬레이션하고 효과적인 갈등 해결 스킬을 훈련합니다.', icon: Scale, status: 'available', categories: ['development', 'team'] },
+  { id: 21, name: '은퇴 준비 로드맵', description: '은퇴 후 삶을 설계하고 체계적인 준비 계획을 수립하는 AI 코칭 도구입니다.', icon: Route, status: 'available', categories: ['development'] },
   // Strategy/Learning
-  { id: 22, name: '경영전략 분석', icon: TrendingUp, status: 'available', categories: ['strategy'] },
-  { id: 23, name: '로직트리 문제해결 마스터', icon: TreePine, status: 'available', categories: ['learning', 'strategy'] },
+  { id: 22, name: '경영전략 분석', description: '기업의 경영전략을 AI로 분석하고 전략적 인사이트를 도출하는 도구입니다.', icon: TrendingUp, status: 'available', categories: ['strategy'] },
+  { id: 23, name: '로직트리 문제해결 마스터', description: '로직트리 기법을 활용하여 체계적인 문제해결 역량을 훈련하는 AI 도구입니다.', icon: TreePine, status: 'available', categories: ['learning', 'strategy'] },
   // 시뮬레이션/팀빌딩 게임
-  { id: 24, name: '제3공장 문제해결 시뮬레이션', icon: Factory, iconClass: 'text-orange-400', bgClass: 'from-orange-400/20', status: 'available', categories: ['strategy', 'ai-teambuilding', 'learning'] },
-  { id: 25, name: '미션 임파서블! 방탈출', icon: KeyRound, iconClass: 'text-red-400', bgClass: 'from-red-400/20', status: 'available', categories: ['team', 'ai-teambuilding'] },
+  { id: 24, name: '제3공장 문제해결 시뮬레이션', description: '가상의 공장 문제 상황을 해결하며 문제해결 역량을 훈련하는 시뮬레이션 게임입니다.', icon: Factory, iconClass: 'text-orange-400', bgClass: 'from-orange-400/20', status: 'available', categories: ['strategy', 'ai-teambuilding', 'learning'] },
+  { id: 25, name: '미션 임파서블! 방탈출', description: '팀원들과 협력하여 미션을 해결하는 AI 기반 방탈출 팀빌딩 게임입니다.', icon: KeyRound, iconClass: 'text-red-400', bgClass: 'from-red-400/20', status: 'available', categories: ['team', 'ai-teambuilding'] },
 ];
 
 export const AIAgent: React.FC = () => {
