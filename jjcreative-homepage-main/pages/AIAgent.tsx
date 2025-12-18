@@ -61,7 +61,7 @@ const aiApps = [
     icon: Lightbulb,
     iconClass: 'text-yellow-400',
     bgClass: 'from-yellow-400/20',
-    status: 'upload-soon',
+    status: 'available',
     categories: ['learning', 'team'],
   },
   {
@@ -133,25 +133,25 @@ const aiApps = [
   },
   // === Upload Soon Apps ===
   // Team/Org
-  { id: 11, name: 'Quinn 조직문화 유형 진단', icon: BarChart3, status: 'upload-soon', categories: ['team'] },
-  { id: 12, name: '팀빌딩 크리에이터', icon: Users, status: 'upload-soon', categories: ['team', 'ai-teambuilding'] },
+  { id: 11, name: 'Quinn 조직문화 유형 진단', icon: BarChart3, status: 'available', categories: ['team'] },
+  { id: 12, name: '팀빌딩 크리에이터', icon: Users, status: 'available', categories: ['team', 'ai-teambuilding'] },
   // Leadership
-  { id: 13, name: '상황대응 리더십 진단 및 시뮬레이션', icon: Compass, status: 'upload-soon', categories: ['leadership'] },
-  { id: 14, name: 'One on One 리더십 시뮬레이션', icon: MessageSquare, status: 'upload-soon', categories: ['leadership'] },
+  { id: 13, name: '상황대응 리더십 진단 및 시뮬레이션', icon: Compass, status: 'available', categories: ['leadership'] },
+  { id: 14, name: 'One on One 리더십 시뮬레이션', icon: MessageSquare, status: 'available', categories: ['leadership'] },
   { id: 15, name: '켈리 팔로워십 진단 및 시뮬레이션', icon: UserCheck, iconClass: 'text-indigo-400', bgClass: 'from-indigo-400/20', url: 'https://youtube.com/shorts/HYK5PZHMZGM', status: 'available', categories: ['leadership', 'team'] },
-  { id: 16, name: '셀프 리더십 진단 및 시뮬레이션', icon: Star, status: 'upload-soon', categories: ['leadership', 'development'] },
+  { id: 16, name: '셀프 리더십 진단 및 시뮬레이션', icon: Star, status: 'available', categories: ['leadership', 'development'] },
   // Development
-  { id: 17, name: '강점 진단 및 역량개발', icon: Activity, status: 'upload-soon', categories: ['development'] },
-  { id: 18, name: '저성과자 역량 진단', icon: Target, status: 'upload-soon', categories: ['development'] },
-  { id: 19, name: '시간관리 스킬 업', icon: Timer, status: 'upload-soon', categories: ['development'] },
-  { id: 20, name: '갈등관리 스킬 업', icon: Scale, status: 'upload-soon', categories: ['development', 'team'] },
-  { id: 21, name: '은퇴 준비 로드맵', icon: Route, status: 'upload-soon', categories: ['development'] },
+  { id: 17, name: '강점 진단 및 역량개발', icon: Activity, status: 'available', categories: ['development'] },
+  { id: 18, name: '저성과자 역량 진단', icon: Target, status: 'available', categories: ['development'] },
+  { id: 19, name: '시간관리 스킬 업', icon: Timer, status: 'available', categories: ['development'] },
+  { id: 20, name: '갈등관리 스킬 업', icon: Scale, status: 'available', categories: ['development', 'team'] },
+  { id: 21, name: '은퇴 준비 로드맵', icon: Route, status: 'available', categories: ['development'] },
   // Strategy/Learning
-  { id: 22, name: '경영전략 분석', icon: TrendingUp, status: 'upload-soon', categories: ['strategy'] },
-  { id: 23, name: '로직트리 문제해결 마스터', icon: TreePine, status: 'upload-soon', categories: ['learning', 'strategy'] },
+  { id: 22, name: '경영전략 분석', icon: TrendingUp, status: 'available', categories: ['strategy'] },
+  { id: 23, name: '로직트리 문제해결 마스터', icon: TreePine, status: 'available', categories: ['learning', 'strategy'] },
   // 시뮬레이션/팀빌딩 게임
-  { id: 24, name: '제3공장 문제해결 시뮬레이션', icon: Factory, iconClass: 'text-orange-400', bgClass: 'from-orange-400/20', status: 'upload-soon', categories: ['strategy', 'ai-teambuilding', 'learning'] },
-  { id: 25, name: '미션 임파서블! 방탈출', icon: KeyRound, iconClass: 'text-red-400', bgClass: 'from-red-400/20', status: 'upload-soon', categories: ['team', 'ai-teambuilding'] },
+  { id: 24, name: '제3공장 문제해결 시뮬레이션', icon: Factory, iconClass: 'text-orange-400', bgClass: 'from-orange-400/20', status: 'available', categories: ['strategy', 'ai-teambuilding', 'learning'] },
+  { id: 25, name: '미션 임파서블! 방탈출', icon: KeyRound, iconClass: 'text-red-400', bgClass: 'from-red-400/20', status: 'available', categories: ['team', 'ai-teambuilding'] },
 ];
 
 export const AIAgent: React.FC = () => {
