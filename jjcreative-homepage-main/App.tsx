@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
+import { VideoPopup } from './components/VideoPopup';
 import { About } from './pages/About';
 import { People } from './pages/People';
 import { Programs } from './pages/Programs';
@@ -12,6 +13,7 @@ import { Contact } from './pages/Contact';
 function App() {
   return (
     <HashRouter>
+      <VideoPopup />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<About />} />
