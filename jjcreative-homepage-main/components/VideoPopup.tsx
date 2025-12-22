@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Clock, Users, TrendingUp, FileText, Play } from 'lucide-react';
+import { X, Clock, Users, TrendingUp, FileText, Play, Phone, Mail } from 'lucide-react';
 
 const STORAGE_KEY = 'jjcreative_video_popup_hidden_date';
 
@@ -159,13 +159,37 @@ export const VideoPopup: React.FC = () => {
               </div>
             </div>
 
-            {/* CTA Message */}
-            <div className="text-center space-y-2">
-              <p className="text-gray-300">
-                <span className="text-tech-cyan font-bold">JJ Creative</span>가 만든 혁신적인 AI 업무관리 솔루션으로
-              </p>
-              <p className="text-white font-bold text-lg">
-                조직의 업무 효율을 극대화하세요!
+            {/* Contact Info */}
+            <div className="bg-gradient-to-r from-tech-cyan/10 via-purple-500/10 to-tech-cyan/10 border border-tech-cyan/30 p-6">
+              <p className="text-center text-tech-cyan font-mono text-sm mb-4">CONTACT_US</p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <a
+                  href="tel:010-8448-2354"
+                  className="flex items-center gap-3 text-white hover:text-tech-cyan transition-colors group"
+                >
+                  <div className="w-10 h-10 bg-tech-cyan/20 border border-tech-cyan/50 flex items-center justify-center group-hover:bg-tech-cyan/30 transition-colors">
+                    <Phone size={18} className="text-tech-cyan" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500 font-mono">PHONE</p>
+                    <p className="font-bold">010-8448-2354</p>
+                  </div>
+                </a>
+                <a
+                  href="mailto:jjh@jjcreative.co.kr"
+                  className="flex items-center gap-3 text-white hover:text-purple-400 transition-colors group"
+                >
+                  <div className="w-10 h-10 bg-purple-500/20 border border-purple-500/50 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors">
+                    <Mail size={18} className="text-purple-400" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500 font-mono">EMAIL</p>
+                    <p className="font-bold">jjh@jjcreative.co.kr</p>
+                  </div>
+                </a>
+              </div>
+              <p className="text-center text-gray-400 text-sm mt-4">
+                도입 문의 및 상담을 원하시면 연락주세요!
               </p>
             </div>
           </div>
@@ -178,21 +202,12 @@ export const VideoPopup: React.FC = () => {
             >
               오늘 하루 그만 보기
             </button>
-            <div className="flex items-center gap-3">
-              <button
-                onClick={handleClose}
-                className="cursor-hover px-6 py-2 border border-white/20 text-gray-300 hover:text-white hover:border-white/40 font-mono text-sm transition-colors"
-              >
-                닫기
-              </button>
-              <a
-                href="/#/ai-agent"
-                onClick={handleClose}
-                className="cursor-hover px-6 py-2 bg-gradient-to-r from-tech-cyan to-purple-500 text-white font-bold font-mono text-sm hover:opacity-90 transition-opacity"
-              >
-                자세히 보기
-              </a>
-            </div>
+            <button
+              onClick={handleClose}
+              className="cursor-hover px-8 py-2 border border-white/20 text-gray-300 hover:text-white hover:border-white/40 font-mono text-sm transition-colors"
+            >
+              닫기
+            </button>
           </div>
         </div>
       </div>
