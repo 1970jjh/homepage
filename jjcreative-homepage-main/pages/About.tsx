@@ -176,6 +176,184 @@ export const About: React.FC = () => {
         </div>
       </section>
 
+      {/* 2026 핵심가치 내재화 with AI 프로그램 */}
+      <section className="py-20 bg-tech-panel relative">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" style={{ backgroundSize: '40px 40px' }}></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-12">
+            <span className="font-mono text-tech-cyan text-sm tracking-widest mb-4 block">// 2026_CORE_VALUE_PROGRAM</span>
+            <h2 className="text-3xl font-bold text-white mb-2">2026 핵심가치 내재화 with AI 프로그램</h2>
+            <p className="text-xl text-tech-cyan font-bold mb-4">5TH RE-ONBOARDING : 핵심가치 내재화 과정</p>
+            <div className="flex justify-center gap-4 flex-wrap">
+              <span className="bg-tech-cyan/20 text-tech-cyan px-4 py-1 rounded-full text-sm font-mono"># 5년차 직원</span>
+              <span className="bg-jjorange/20 text-jjorange px-4 py-1 rounded-full text-sm font-mono"># 8hr ~ 16hr</span>
+              <span className="bg-green-500/20 text-green-400 px-4 py-1 rounded-full text-sm font-mono">One & Only</span>
+            </div>
+          </div>
+
+          {/* YouTube Videos 2x1 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-tech-bg rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
+            >
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube.com/embed/XzUnBM293oY"
+                  title="코오롱그룹 DEMO"
+                  className="w-full h-full"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-4 text-center">
+                <span className="text-white font-bold">코오롱그룹 DEMO</span>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-tech-bg rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
+            >
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube.com/embed/WoXnT_Znf2c"
+                  title="KAKAO 그룹 DEMO"
+                  className="w-full h-full"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-4 text-center">
+                <span className="text-white font-bold">KAKAO 그룹 DEMO</span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Program Description */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Left - Program Overview */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-tech-bg p-8 rounded-xl border border-tech-dim"
+            >
+              <h3 className="text-2xl font-bold text-tech-cyan mb-4">&lt;Kim's Back: RE-BOOT&gt;</h3>
+              <p className="text-white font-bold text-lg mb-4">
+                "회사 업무는 익숙해졌는데, 가슴은 식어버린 입사 5년 차 김철호 대리."
+              </p>
+              <p className="text-gray-400 leading-relaxed mb-6">
+                매너리즘과 번아웃의 갈림길에서, 핵심가치(Core Value)를 통해 업(業)의 본질을 재발견하고
+                다시 한번 뜨겁게 몰입하는 리온보딩 시뮬레이션
+              </p>
+
+              <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                <Target size={20} className="text-tech-cyan" /> 교육목표
+              </h4>
+              <ul className="space-y-3 text-gray-300 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-jjorange font-bold mt-0.5">●</span>
+                  <div>
+                    <span className="font-bold text-white">의미 재발견 (Re-Discovery)</span>
+                    <p className="text-gray-400">'내가 이 일을 왜 하는가?'에 대한 직업적 소명 재정립</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-tech-cyan font-bold mt-0.5">●</span>
+                  <div>
+                    <span className="font-bold text-white">행동 기준 확립 (Standardization)</span>
+                    <p className="text-gray-400">실무의 중심(Key-man)으로서 핵심가치를 명확한 '판단의 기준'으로 활용</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-400 font-bold mt-0.5">●</span>
+                  <div>
+                    <span className="font-bold text-white">성장 동기 부여 (Growth Mindset)</span>
+                    <p className="text-gray-400">회사의 성장이 곧 나의 성장임을 깨닫고, 핵심가치 기반 5년 커리어 로드맵 설계</p>
+                  </div>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Right - Modules & Features */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="space-y-6"
+            >
+              {/* Features */}
+              <div className="bg-tech-bg p-6 rounded-xl border border-tech-dim">
+                <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                  <Award size={20} className="text-jjorange" /> 교육 특장점
+                </h4>
+                <div className="space-y-3 text-sm">
+                  <div className="bg-tech-panel p-3 rounded-lg border-l-4 border-jjorange">
+                    <span className="font-bold text-jjorange">Feature 01.</span>
+                    <span className="text-white ml-2">The 5th-Year Dilemma</span>
+                    <p className="text-gray-400 mt-1">낀 세대의 리얼리티 - 5년 차의 샌드위치 상황을 극사실적으로 묘사</p>
+                  </div>
+                  <div className="bg-tech-panel p-3 rounded-lg border-l-4 border-tech-cyan">
+                    <span className="font-bold text-tech-cyan">Feature 02.</span>
+                    <span className="text-white ml-2">Value as a Weapon</span>
+                    <p className="text-gray-400 mt-1">무기가 되는 핵심가치 - 핵심가치를 실무 문제 해결의 무기로 활용</p>
+                  </div>
+                  <div className="bg-tech-panel p-3 rounded-lg border-l-4 border-green-400">
+                    <span className="font-bold text-green-400">Feature 03.</span>
+                    <span className="text-white ml-2">Future Roadmap Simulation</span>
+                    <p className="text-gray-400 mt-1">미래 시뮬레이션 - 5년 후 '김철호 팀장'의 모습 체험</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Modules */}
+              <div className="bg-tech-bg p-6 rounded-xl border border-tech-dim">
+                <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                  <Compass size={20} className="text-tech-cyan" /> 프로그램 구성 (4.0hr ~ 8.0hr)
+                </h4>
+                <div className="grid grid-cols-2 gap-3 text-sm">
+                  <div className="bg-tech-panel p-3 rounded-lg text-center">
+                    <span className="text-gray-400 text-xs block">Intro</span>
+                    <span className="text-white font-bold">Log-in</span>
+                    <p className="text-tech-cyan text-xs mt-1">김철호의 하루</p>
+                  </div>
+                  <div className="bg-tech-panel p-3 rounded-lg text-center">
+                    <span className="text-gray-400 text-xs block">Module 1</span>
+                    <span className="text-white font-bold">Conflict</span>
+                    <p className="text-tech-cyan text-xs mt-1">흔들리는 중심</p>
+                  </div>
+                  <div className="bg-tech-panel p-3 rounded-lg text-center">
+                    <span className="text-gray-400 text-xs block">Module 2</span>
+                    <span className="text-white font-bold">Solution</span>
+                    <p className="text-tech-cyan text-xs mt-1">프로의 한 끗</p>
+                  </div>
+                  <div className="bg-tech-panel p-3 rounded-lg text-center">
+                    <span className="text-gray-400 text-xs block">Module 3</span>
+                    <span className="text-white font-bold">Visioning</span>
+                    <p className="text-tech-cyan text-xs mt-1">다시 뛰는 심장</p>
+                  </div>
+                  <div className="col-span-2 bg-tech-panel p-3 rounded-lg text-center border border-jjorange/30">
+                    <span className="text-gray-400 text-xs block">Module 4</span>
+                    <span className="text-white font-bold">Re-Boot</span>
+                    <p className="text-jjorange text-xs mt-1">새로운 출발</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Business Areas */}
       <section className="py-20 bg-tech-panel relative">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" style={{ backgroundSize: '40px 40px' }}></div>
