@@ -249,13 +249,13 @@ export const AIAgent: React.FC = () => {
               JJ Creative가 개발한 AI 에이전트 앱의 실제 작동 모습을 확인해보세요.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Video 1 - 학습퀴즈 생성 */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
               className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
             >
               <div className="aspect-video">
@@ -268,17 +268,17 @@ export const AIAgent: React.FC = () => {
                   allowFullScreen
                 ></iframe>
               </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-white mb-2">학습퀴즈 생성 및 진행 AI APP</h3>
+              <div className="p-5">
+                <h3 className="text-base font-bold text-white mb-2">학습퀴즈 생성 및 진행 AI APP</h3>
                 <p className="text-gray-400 text-sm">AI가 학습 콘텐츠를 분석하여 자동으로 퀴즈를 생성하고, 학습자의 이해도를 실시간으로 평가합니다.</p>
               </div>
             </motion.div>
             {/* Video 2 - 상황대응 리더십 */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5, delay: 0.05 }}
               className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
             >
               <div className="aspect-video">
@@ -291,55 +291,239 @@ export const AIAgent: React.FC = () => {
                   allowFullScreen
                 ></iframe>
               </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-white mb-2">상황대응 리더십 스타일 진단 및 시뮬레이션 AI APP</h3>
+              <div className="p-5">
+                <h3 className="text-base font-bold text-white mb-2">상황대응 리더십 스타일 진단 및 시뮬레이션 AI APP</h3>
                 <p className="text-gray-400 text-sm">AI 기반 리더십 스타일 진단과 다양한 상황별 시뮬레이션으로 리더십 역량을 강화합니다.</p>
               </div>
             </motion.div>
-            {/* Video 3 - AI 에이전트 소개 */}
+            {/* Video 3 - SWOT 미션 */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
             >
               <div className="aspect-video">
                 <iframe
                   className="w-full h-full"
                   src="https://www.youtube.com/embed/JJt_KBWNabs"
-                  title="AI Agent App 소개"
+                  title="AI팀빌딩 _ 팀 SWOT 미션 게임"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 ></iframe>
               </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-white mb-2">AI Agent App 소개</h3>
-                <p className="text-gray-400 text-sm">JJ Creative가 개발한 AI 에이전트 앱의 특징과 활용 방법을 소개합니다.</p>
+              <div className="p-5">
+                <h3 className="text-base font-bold text-white mb-2">AI팀빌딩 _ 팀 SWOT 미션 게임</h3>
+                <p className="text-gray-400 text-sm">우리팀의 강점을 극대화하고, 약점을 보완하는 팀 SWOT 전략 AI게임!</p>
               </div>
             </motion.div>
-            {/* Video 4 - AI 에이전트 Shorts */}
+            {/* Video 4 - 팔로워십 진단 */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
               className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
             >
               <div className="aspect-video">
                 <iframe
                   className="w-full h-full"
                   src="https://www.youtube.com/embed/HYK5PZHMZGM"
-                  title="AI Agent App 하이라이트"
+                  title="팔로워십 교육을 위한 AI 팔로워십 진단 웹앱"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 ></iframe>
               </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-white mb-2">AI Agent App 하이라이트</h3>
-                <p className="text-gray-400 text-sm">AI 에이전트 앱의 핵심 기능을 짧은 영상으로 확인해보세요.</p>
+              <div className="p-5">
+                <h3 className="text-base font-bold text-white mb-2">팔로워십 교육을 위한 AI 팔로워십 진단 웹앱</h3>
+                <p className="text-gray-400 text-sm">켈리의 팔로워십 5유형을 진단하고, 모범적 팔로워로 성장하기 위한 액션플랜을 제시해주는 AI AGENT WEB APP</p>
+              </div>
+            </motion.div>
+            {/* Video 5 - 신규: AI 팀 업무관리 솔루션 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
+            >
+              <div className="aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/q74ZiOM2GOs"
+                  title="AI 팀 업무관리 솔루션"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-5">
+                <h3 className="text-base font-bold text-white mb-2">AI 팀 업무관리 솔루션</h3>
+                <p className="text-gray-400 text-sm">팀 업무 통합 관리부터 주간업무보고 자동 생성까지! AI가 만드는 스마트 워크 솔루션으로 업무 효율을 극대화합니다.</p>
+              </div>
+            </motion.div>
+            {/* Video 6 - 신규: AI 경쟁시장 시뮬레이션 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
+            >
+              <div className="aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/dgzOIgdQf1w"
+                  title="AI 경쟁시장 시뮬레이션 게임"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-5">
+                <h3 className="text-base font-bold text-white mb-2">AI 경쟁시장 시뮬레이션 게임</h3>
+                <p className="text-gray-400 text-sm">가상의 경쟁 시장에서 전략적 의사결정을 체험하며, 시장 분석과 경영 전략 수립 역량을 키우는 AI 시뮬레이션 게임입니다.</p>
+              </div>
+            </motion.div>
+            {/* Video 7 - 신규: AI 전략적 포지셔닝 분석 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
+            >
+              <div className="aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/9AgsAOT4zFU"
+                  title="AI 전략적 포지셔닝 분석 도구"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-5">
+                <h3 className="text-base font-bold text-white mb-2">AI 전략적 포지셔닝 분석 도구</h3>
+                <p className="text-gray-400 text-sm">시장 내 경쟁 포지션을 AI로 분석하고, 최적의 전략적 위치를 도출하여 차별화된 경쟁 우위를 확보하는 방법을 학습합니다.</p>
+              </div>
+            </motion.div>
+            {/* Video 8 - 신규: AI 집단지성 팀빌딩 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.35 }}
+              className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
+            >
+              <div className="aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/k5JISVKau10"
+                  title="AI 집단지성 팀빌딩 프로그램"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-5">
+                <h3 className="text-base font-bold text-white mb-2">AI 집단지성 팀빌딩 프로그램</h3>
+                <p className="text-gray-400 text-sm">팀원들의 다양한 관점을 AI가 종합하여 집단지성을 발휘하는 협업 기반 문제해결 팀빌딩 프로그램입니다.</p>
+              </div>
+            </motion.div>
+            {/* Video 9 - 신규: AI vs Human 팀빌딩 챌린지 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
+            >
+              <div className="aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/NWJvkDZdHjk"
+                  title="AI vs Human 팀빌딩 챌린지"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-5">
+                <h3 className="text-base font-bold text-white mb-2">AI vs Human 팀빌딩 챌린지</h3>
+                <p className="text-gray-400 text-sm">AI와 인간 팀이 협력과 경쟁을 통해 창의적 문제해결 역량을 키우는 혁신적인 팀빌딩 프로그램입니다.</p>
+              </div>
+            </motion.div>
+            {/* Video 10 - 신규: AI 러닝 인포그래픽 생성 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.45 }}
+              className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
+            >
+              <div className="aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/-bhA2NUEijE"
+                  title="AI 러닝 인포그래픽 생성기"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-5">
+                <h3 className="text-base font-bold text-white mb-2">AI 러닝 인포그래픽 생성기</h3>
+                <p className="text-gray-400 text-sm">교육 콘텐츠를 AI가 분석하여 시각적인 인포그래픽으로 자동 변환! 학습 내용을 한눈에 정리하고 기억에 오래 남도록 돕습니다.</p>
+              </div>
+            </motion.div>
+            {/* Video 11 - 신규: AI 셀프 리더십 진단 시뮬레이션 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
+            >
+              <div className="aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/XzUnBM293oY"
+                  title="AI 셀프 리더십 진단 및 시뮬레이션"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-5">
+                <h3 className="text-base font-bold text-white mb-2">AI 셀프 리더십 진단 및 시뮬레이션</h3>
+                <p className="text-gray-400 text-sm">자기 주도적 업무 수행 역량을 AI로 진단하고, 다양한 상황별 시뮬레이션으로 셀프 리더십 스킬을 향상시킵니다.</p>
+              </div>
+            </motion.div>
+            {/* Video 12 - 신규: AI 문제해결 로직트리 마스터 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.55 }}
+              className="bg-tech-panel rounded-2xl overflow-hidden border border-tech-dim hover:border-tech-cyan transition-all"
+            >
+              <div className="aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/WoXnT_Znf2c"
+                  title="AI 문제해결 로직트리 마스터"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-5">
+                <h3 className="text-base font-bold text-white mb-2">AI 문제해결 로직트리 마스터</h3>
+                <p className="text-gray-400 text-sm">복잡한 문제를 로직트리 기법으로 체계적으로 분해하고, AI가 최적의 해결 방안을 도출하는 과정을 학습합니다.</p>
               </div>
             </motion.div>
           </div>
